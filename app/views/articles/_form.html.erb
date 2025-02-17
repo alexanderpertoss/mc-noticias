@@ -1,0 +1,41 @@
+<%= form_with model: @article do |form| %>
+  <div class="form-group">
+    <%= form.label "Título" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Autor" %>
+    <%= form.text_field :author, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Contenido", style: "display: block" %>
+    <%= form.rich_text_area :content %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Imagen principal", style: "display: block" %>
+    <%= form.file_field :main_image, accept: "image/*", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Idioma" %>
+    <%= form.select :language, Article::LANGUAGES, { prompt: "Selecciona un idioma"}, { class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "URL de video (opcional)" %>
+    <%= form.text_field :video_url, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Categoría" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Selecciona una categoría"}, { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Aceptar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", articles_path, class: "btn btn-danger" %>
+  </div>
+<% end %>

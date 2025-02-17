@@ -1,0 +1,26 @@
+<h1>Categorías</h1>
+
+<%= link_to "Crear categoría", new_category_path, class: "btn btn-primary" %>
+
+<br><br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col" colspan="3">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @categories.each do |category| %>
+  		<tr>
+  		  <th scope="row"><%= category.name %></th>
+  		  <td><%= category.description %></td>
+  		  <td><%= link_to "Ver", category_path(category), class: "btn btn-success" %></td>
+  		  <td><%= link_to "Editar", edit_category_path(category), class: "btn btn-primary" %></td>
+  		  <td><%= button_to "Eliminar", category, method: :delete, data: { turbo_confirm: "Estás seguro?" }, class: "btn btn-danger" %></td>
+  		</tr>
+  	<% end %>
+    
+  </tbody>
+</table>

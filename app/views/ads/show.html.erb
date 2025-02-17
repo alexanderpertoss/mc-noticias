@@ -1,0 +1,8 @@
+<h1>Publicidad: <%= @ad.name %></h1>
+<p>
+	<%= image_tag @ad.main_image, class: "img-fluid" %>
+</p>
+<div>
+	<%= link_to "Ir a publicidad", ads_path, class: "btn btn-primary" %>
+	<%= link_to "Editar", edit_ad_path(@ad), class: "btn btn-success" %>
+</div>
