@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   resources :categories
   resources :articles
   resources :ads
+
+  get 'history' => 'user_content#history'
 end

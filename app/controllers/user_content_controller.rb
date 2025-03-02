@@ -15,7 +15,7 @@ class UserContentController < ApplicationController
 
 		# At most, get 4 articles to go next to the main slider ones
 		@articles_for_top = @articles.limit 4
-		@remaining_articles = @articles.offset 4
+		@remaining_articles = @articles.offset(4).limit(6)
 
 
 		# Gente que hace noticia category
@@ -47,5 +47,19 @@ class UserContentController < ApplicationController
 		@categories = Category.all
 
 		@latest_news_pill = Category.find(8).articles.last
+
+		# ignore the categories that have a fixed part in the index
+		@categories_for_main_page = Category.where.not(id: [1, 2, 3, 4, 8])
+	end
+
+	def history
+		@articles = Article.where.not(category_id: [8]).order(visits: :asc)
+		# Gente que hace noticia category
+		@people_articles = Category.find(4).articles.limit 5
+		#Testing this model
+		@ad = Ad.first
+		@trendind_articles = Article.order(visits: :desc).limit(5)
+		# For the footer
+		@categories = Category.all
 	end
 end

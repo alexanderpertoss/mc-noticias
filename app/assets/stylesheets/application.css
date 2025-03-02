@@ -9509,6 +9509,14 @@ h6,
   z-index: 99;
 }
 
+.whatsapp-link {
+  position: fixed;
+  
+  right: 30px;
+  bottom: 80px;
+  z-index: 99;
+}
+
 .navbar-dark .navbar-nav .nav-link {
   padding: 20px 15px;
   color: #FFFFFF;
@@ -9684,3 +9692,8 @@ h6,
 .wrapper {
     display: block;
 }
+
+.extra-info {
+  font-size: 12px;
+}
+

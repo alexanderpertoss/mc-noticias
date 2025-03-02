@@ -1,0 +1,28 @@
+<!-- Featured News Slider Start -->
+<div class="container-fluid pt-5 mb-3">
+    <div class="container">
+        <div class="section-title">
+            <h4 class="m-0 text-uppercase font-weight-bold">Noticias destacadas</h4>
+        </div>
+        <div class="owl-carousel news-carousel carousel-item-<%= @number_of_highlighted_articles %> position-relative">
+            <% @highlithed_articles.each do |article| %>
+                <div class="position-relative overflow-hidden" style="height: 300px;">
+                    <%= image_tag article.main_image, class: "img-fluid h-100", style: "object-fit: cover;" %>
+                    <div class="overlay">
+                        <div class="mb-2">
+                            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                                href=""><%= article.category.name %></a><br>
+                            <a class="text-white" href=""><small>
+                                <%= article.created_at.strftime("%d %b, %Y") %>
+                            </small></a>
+                        </div>
+                        
+                            <%= link_to (truncate(article.title, length: 120)), article_path(article), class: "h6 m-0 text-white text-uppercase font-weight-semi-bold" %>
+                        
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<!-- Featured News Slider End -->

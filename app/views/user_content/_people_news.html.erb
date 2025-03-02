@@ -1,0 +1,22 @@
+<!-- Popular News Start -->
+                <div class="mb-3">
+                    <div class="section-title mb-0">
+                        <h4 class="m-0 text-uppercase font-weight-bold">GENTE QUE HACE NOTICIA</h4>
+                    </div>
+                    <div class="bg-white border border-top-0 p-3">
+                        <% @people_articles.each do |article| %>
+                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
+                                
+                                <%= image_tag article.main_image, class: "img-fluid", style: "height: 110px" %>
+                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+                                    <div class="mb-2">
+                                        
+                                        <a class="text-body" href=""><small><%= article.created_at.strftime("%d %b, %Y") %></small></a>
+                                    </div>
+                                    <%= link_to (truncate(article.title, length: 120)), article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold" %>
+                                </div>
+                            </div>
+                        <% end %>
+                    </div>
+                </div>
+                <!-- Popular News End -->

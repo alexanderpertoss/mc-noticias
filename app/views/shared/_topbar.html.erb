@@ -5,7 +5,7 @@
             <nav class="navbar navbar-expand-sm bg-dark p-0">
                 <ul class="navbar-nav ml-n2">
                     <li class="nav-item border-right border-secondary">
-                        <a class="nav-link text-body small" href="#">Lunes, 10 de diciembre, 2024</a>
+                        <a class="nav-link text-body small" href="#"><%= Date.today.strftime("%d %b, %Y") %></a>
                     </li>
                     <li class="nav-item border-right border-secondary">
                         <a class="nav-link text-body small" href="#">Publicitar</a>
@@ -46,30 +46,41 @@
     </div>
     
     <div class="row align-items-center bg-white py-3 px-lg-5">
-        <div class="col-lg-1 text-center text-lg-center">
-            <h6 class="text-uppercase font-weight-bold">
-                Lee más noticias
-            </h6>
+        <div class="col-lg-1 text-center text-lg-right">
+            <a href="/"><%= image_tag "logo-negro.jpeg", class: "img-fluid" %>
+            </a>
+        </div>
+        <div class="col-lg-4" style="font-weight: bold; color: black; font-size: 20px;">
+            SOLO LO MÁS IMPORTANTE
+        </div>
+        <div class="col-lg-1 text-center text-lg-left">
+            
         </div>
         <div class="col-lg-1 text-center text-lg-right">
-            <a href="#"><%= image_tag "logo-blanco.jpeg", class: "img-fluid" %>
+            <a href="#"><%= image_tag "page1.jpeg", class: "img-fluid rounded-circle", style: "width: 60px;" %>
             </a>
         </div>
         <div class="col-lg-1 text-center text-lg-right">
-            <a href="#"><%= image_tag "page1.jpeg", class: "img-fluid" %>
-            </a>
+            <a href="#"><%= image_tag "page2.jpeg", class: "img-fluid rounded-circle", style: "width: 60px;" %></a>
         </div>
         <div class="col-lg-1 text-center text-lg-right">
-            <a href="#"><%= image_tag "page2.jpeg", class: "img-fluid" %></a>
+            <a href="#"><%= image_tag "page3.jpeg", class: "img-fluid rounded-circle", style: "width: 60px;" %></a>
         </div>
         <div class="col-lg-1 text-center text-lg-right">
-            <a href="#"><%= image_tag "page3.jpeg", class: "img-fluid" %></a>
+            <a href="#"><%= image_tag "page4.jpeg", class: "img-fluid rounded-circle", style: "width: 60px;" %></a>
         </div>
         <div class="col-lg-1 text-center text-lg-right">
-            <a href="#"><%= image_tag "page4.jpeg", class: "img-fluid" %></a>
+            <a href="#"><%= image_tag "page5.jpeg", class: "img-fluid rounded-circle", style: "width: 60px;" %></a>
         </div>
-        <div class="col-lg-1 text-center text-lg-right">
-            <a href="#"><%= image_tag "page5.jpeg", class: "img-fluid" %></a>
+        <div class="col-lg-1 text-center">
+            <div class="row">
+                <div class="col-12 text-left extra-info">
+                    Temperatura: 30c
+                </div>
+                <div class="col-12 text-left extra-info">
+                    Dólar Blue: Bs. 11.5
+                </div>
+            </div>
         </div>
     </div>
     
