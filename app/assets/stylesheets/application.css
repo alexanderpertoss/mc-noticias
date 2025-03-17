@@ -9504,6 +9504,7 @@ h6,
 .back-to-top {
   position: fixed;
   display: none;
+  color: white;
   right: 30px;
   bottom: 30px;
   z-index: 99;
@@ -9511,6 +9512,7 @@ h6,
 
 .whatsapp-link {
   position: fixed;
+  color: white;
   background-color: #25D366;
   border-color: #25D366;
   right: 30px;
@@ -9526,6 +9528,7 @@ h6,
 .telegram-link {
   position: fixed;
   background-color: #229ED9;
+  color: white;
   border-color: #229ED9;
   right: 30px;
   bottom: 120px;
