@@ -9511,10 +9511,15 @@ h6,
 
 .whatsapp-link {
   position: fixed;
-  
+  background-color: #25D366;
+  border-color: #25D366;
   right: 30px;
   bottom: 80px;
   z-index: 99;
+}
+
+.whatsapp-link:hover {
+  background-color: #25D366;
 }
 
 .navbar-dark .navbar-nav .nav-link {
