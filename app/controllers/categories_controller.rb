@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   layout "admin", except: %i[ show ]
 
   def index
-    @categories = Category.all
+    @categories = Category.all.order(:id)
   end
 
   def show
