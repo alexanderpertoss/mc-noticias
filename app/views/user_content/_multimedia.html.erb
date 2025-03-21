@@ -7,7 +7,9 @@
         <div class="owl-carousel news-carousel carousel-item-<%= @number_of_multimedia_articles %> position-relative">
             <% @multimedia_articles.each do |article| %>
                 <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <%= image_tag article.main_image, class: "img-fluid h-100", style: "object-fit: cover;" %>
+                    <% if !article.main_image_attachment.nil? %>
+                        <%= image_tag article.main_image, class: "img-fluid h-100", style: "object-fit: cover;" %>
+                    <% end %>
                     <div class="overlay">
                         <div class="mb-2">
                             <%= link_to article.category.name, category_path(article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>

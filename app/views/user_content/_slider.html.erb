@@ -7,8 +7,9 @@
 
                 <% @slider_articles.each do |slider_article| %>
                     <div class="position-relative overflow-hidden" style="height: 500px; border: solid 5px; border-color: white;">
-                        
-                        <%= image_tag slider_article.main_image, class: "img-fluid h-100", style: "object-fit: cover;" %>
+                        <% if !slider_article.main_image_attachment.nil? %>
+                            <%= image_tag slider_article.main_image, class: "img-fluid h-100", style: "object-fit: cover;" %>
+                        <% end %>
                         <div class="overlay">
                             <div class="mb-2">
                                     <%= link_to slider_article.category.name, category_path(slider_article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>
@@ -28,7 +29,9 @@
                 <% @articles_for_top.each do |subarticle| %>
                      <div class="col-md-6 px-0">
                          <div class="position-relative overflow-hidden" style="height: 250px; border: solid 5px; border-color: white;">
-                             <%= image_tag subarticle.main_image, class: "img-fluid w-100 h-100", style: "object-fit: cover;" %>
+                            <% if !subarticle.main_image_attachment.nil? %>
+                                <%= image_tag subarticle.main_image, class: "img-fluid w-100 h-100", style: "object-fit: cover;" %>
+                            <% end %>
                              <div class="overlay">
                                  <div class="mb-2">
                                      <%= link_to subarticle.category.name, category_path(subarticle.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>
