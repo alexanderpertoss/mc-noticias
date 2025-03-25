@@ -6,25 +6,26 @@ class UserContentController < ApplicationController
 		# Get all the categories ordered based on the queue_position
 		@categories = Category.order(queue_position: :desc)
 
+		# Get all articles for main slider (Category #2 is the one for slider)
+		@slider_articles = Article.carousel
+
+
+		# Get all articles except the ones for the slider
+		@articles = Article.where.not(category_id: [1, 2, 8])
+		@remaining_articles = Article.summary
+		
+		# At most, get 4 articles to go next to the main slider ones
+		@articles_for_top = Article.for_top
 		
 
-
-		# Get all articles for main slider (Category #2 is the one for slider)
-		@slider_articles = Category.find(2).articles
-
-		# Get all articles for 'noticias destacadas' (Category #1 )
-		@highlithed_articles = Category.find(1).articles
+		# Get all articles for 'noticias destacadas'
+		@highlithed_articles = Article.highlighted
 		@number_of_highlighted_articles = @highlithed_articles.count
 		if @number_of_highlighted_articles > 4
 			@number_of_highlighted_articles = 4
 		end
 
-		# Get all articles except the ones for the slider
-		@articles = Article.where.not(category_id: [1, 2, 8])
-
-		# At most, get 4 articles to go next to the main slider ones
-		@articles_for_top = @articles.limit 4
-		@remaining_articles = @articles.offset(4).limit(6)
+		
 
 
 		# Gente que hace noticia category
