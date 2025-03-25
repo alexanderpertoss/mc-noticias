@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   layout "admin", except: %i[ show ]
 
   def index
-    @categories = Category.all.order(:id)
+    @categories = Category.order(queue_position: :desc)
   end
 
   def show
@@ -47,6 +47,18 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     redirect_to categories_path
+  end
+
+  def move_up
+    @category = Category.find(params[:id])
+    @category.increment!(:queue_position) # Increments the value and saves it
+
+    @categories = Category.order(queue_position: :desc)
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to categories_path, notice: "Queue position updated!" }
+    end
   end
 
   private

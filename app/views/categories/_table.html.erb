@@ -1,0 +1,26 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">Posición en la cola</th>
+      <th scope="col" colspan="4">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @categories.each do |category| %>
+  		<tr id="category_<%= category.id %>">
+  		  <th scope="row"><%= category.name %></th>
+  		  <td><%= category.description %></td>
+        <td><%= category.queue_position %></td>
+        <td>
+          <%= button_to "Up", move_up_category_path(category), method: :patch, remote: true, class: "btn btn-primary" %>
+        </td>
+  		  <td><%= link_to "Ver", category_path(category), class: "btn btn-success" %></td>
+  		  <td><%= link_to "Editar", edit_category_path(category), class: "btn btn-primary" %></td>
+  		  <td><%= button_to "Eliminar", category, method: :delete, data: { turbo_confirm: "Estás seguro?" }, class: "btn btn-danger" %></td>
+  		</tr>
+  	<% end %>
+    
+  </tbody>
+</table>

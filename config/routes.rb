@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  resources :categories
+  resources :categories do
+    member do
+      patch :move_up
+    end
+  end
+
   resources :articles
   resources :ads
 
