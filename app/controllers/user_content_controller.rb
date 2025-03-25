@@ -1,5 +1,14 @@
 class UserContentController < ApplicationController
 	def index
+		# For getting the first category
+		# Category.find_by(queue_position: Category.maximum(:queue_position))
+
+		# Get all the categories ordered based on the queue_position
+		@categories = Category.order(queue_position: :desc)
+
+		
+
+
 		# Get all articles for main slider (Category #2 is the one for slider)
 		@slider_articles = Category.find(2).articles
 
@@ -42,9 +51,6 @@ class UserContentController < ApplicationController
 
 		#Testing this model
 		@ad = Ad.first
-
-		# For the footer
-		@categories = Category.all
 
 		@latest_news_pill = Category.find(8).articles.last
 

@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" id="categories_table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Nombre</th>
@@ -19,8 +19,8 @@
         <td>
           <%= button_to "Bajar", move_down_category_path(category), method: :patch, remote: true, class: "btn btn-primary" %>
         </td>
-  		  <td><%= link_to "Ver", category_path(category), class: "btn btn-success" %></td>
-  		  <td><%= link_to "Editar", edit_category_path(category), class: "btn btn-primary" %></td>
+  		  <td><%= link_to "Ver", category_path(category), class: "btn btn-success", data: { turbo_action: "replace", turbo_frame: "_top" } %></td>
+  		  <td><%= link_to "Editar", edit_category_path(category), class: "btn btn-primary", data: { turbo_action: "replace", turbo_frame: "_top" } %></td>
   		  <td><%= button_to "Eliminar", category, method: :delete, data: { turbo_confirm: "Estás seguro?" }, class: "btn btn-danger" %></td>
   		</tr>
   	<% end %>
