@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :categories do
     member do
       patch :move_up
+      patch :move_down
     end
   end
 

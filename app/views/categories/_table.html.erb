@@ -4,7 +4,7 @@
       <th scope="col">Nombre</th>
       <th scope="col">Descripción</th>
       <th scope="col">Posición en la cola</th>
-      <th scope="col" colspan="4">Opciones</th>
+      <th scope="col" colspan="5">Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,10 @@
   		  <td><%= category.description %></td>
         <td><%= category.queue_position %></td>
         <td>
-          <%= button_to "Up", move_up_category_path(category), method: :patch, remote: true, class: "btn btn-primary" %>
+          <%= button_to "Subir", move_up_category_path(category), method: :patch, remote: true, class: "btn btn-primary" %>
+        </td>
+        <td>
+          <%= button_to "Bajar", move_down_category_path(category), method: :patch, remote: true, class: "btn btn-primary" %>
         </td>
   		  <td><%= link_to "Ver", category_path(category), class: "btn btn-success" %></td>
   		  <td><%= link_to "Editar", edit_category_path(category), class: "btn btn-primary" %></td>

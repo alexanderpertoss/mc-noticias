@@ -61,6 +61,18 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def move_down
+    @category = Category.find(params[:id])
+    @category.decrement!(:queue_position) # Decrements the value and saves it
+
+    @categories = Category.order(queue_position: :desc)
+
+    respond_to do |format|
+      format.turbo_stream
+      format.html { redirect_to categories_path, notice: "Queue position updated!" }
+    end
+  end
+
   private
     def set_category
       @category = Category.find(params[:id])
