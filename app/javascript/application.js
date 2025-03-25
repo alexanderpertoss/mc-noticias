@@ -27,6 +27,8 @@ import "@rails/actiontext"
         }
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
+
+
     });
     
     
@@ -199,4 +201,6 @@ import "@rails/actiontext"
       $(".page-wrapper").addClass("toggled");
     });
     
+
 })(jQuery);
+

@@ -1,7 +1,7 @@
 <turbo-stream action="replace" target="categories_table">
   <template>
     <turbo-frame id="categories_table">
-      <%= render partial: "categories/table", formats: [:html], locals: { categories: @categories } %>
+      <%= render partial: "categories/table", formats: [:html], locals: { categories: @categories, updated_category: @category } %>
       </turbo-frame>
   </template>
 </turbo-stream>

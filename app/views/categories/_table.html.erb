@@ -9,7 +9,7 @@
   </thead>
   <tbody>
   	<% @categories.each do |category| %>
-  		<tr id="category_<%= category.id %>">
+  		<tr id="category_<%= category.id %>" data-controller="highlight" data-category-id="<%= category.id %>" class="<%= 'highlight' if defined?(updated_category) && category.id == updated_category.id %>">
   		  <th scope="row"><%= category.name %></th>
   		  <td><%= category.description %></td>
         <td><%= category.queue_position %></td>

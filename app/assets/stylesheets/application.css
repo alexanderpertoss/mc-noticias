@@ -9720,3 +9720,13 @@ h6,
   font-size: 12px;
 }
 
+.highlight {
+  background-color: #ffc107;
+  transition: background-color 1s ease-in-out;
+  color: white;
+}
+
+.fade-out {
+  transition: background-color 1s ease-in-out;
+  background-color: transparent !important;
+}
