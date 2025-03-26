@@ -54,6 +54,10 @@ class ArticlesController < ApplicationController
     redirect_to edit_article_path(article)
   end
 
+  def multimedia
+    @articles = Article.multimedia
+  end
+
   private
     def set_article
       @article = Article.find(params[:id])

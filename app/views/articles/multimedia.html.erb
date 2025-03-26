@@ -1,0 +1,31 @@
+<h1>Multimedia</h1>
+
+<%= link_to "Crear multimedia", new_article_path(multimedia_news: true), class: "btn btn-primary" %>
+<br><br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Categoría</th>
+      <th scope="col"># Visitas</th>
+      <th scope="col">Fecha</th>
+      <th scope="col" colspan="3">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @articles.each do |article| %>
+  		<tr>
+  		  <th scope="row"><%= article.title %></th>
+  		  <td><%= article.author %></td>
+  		  <td><%= article.category.name %></td>
+        <td><%= article.visits %></td>
+        <td><%= article.created_at.strftime("%d %b, %Y") %></td>
+  		  <td><%= link_to "Ver", article_path(article), class: "btn btn-success" %></td>
+  		  <td><%= link_to "Editar", edit_article_path(article), class: "btn btn-primary" %></td>
+  		  <td><%= button_to "Eliminar", article, method: :delete, data: { turbo_confirm: "Estás seguro?" }, class: "btn btn-danger" %></td>
+  		</tr>
+  	<% end %>
+    
+  </tbody>
+</table>

@@ -33,7 +33,10 @@
     <%= form.label "Categoría" %>
 
     <%= form.collection_select :category_id, Category.all, :id, :name, 
-    { prompt: "Selecciona una categoría", selected: params[:people_news] ? 4 : @article.category_id }, { class: "form-control" } %>
+    { 
+      prompt: "Selecciona una categoría", 
+      selected: params[:multimedia_news] ? 3 : (params[:people_news] ? 4 : @article.category_id) 
+    }, { class: "form-control" } %>
   </div>
 
   <div class="form-group">
