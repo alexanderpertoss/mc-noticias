@@ -51,7 +51,7 @@ class CategoriesController < ApplicationController
 
   def move_up
     @category = Category.find(params[:id])
-    above_category = Category.where("queue_position > ?", @category.queue_position)
+    above_category = Category.where("queue_position >= ?", @category.queue_position)
                                .order(queue_position: :asc)
                                .first
 
@@ -72,7 +72,7 @@ class CategoriesController < ApplicationController
 
   def move_down
     @category = Category.find(params[:id])
-    below_category = Category.where("queue_position < ?", @category.queue_position)
+    below_category = Category.where("queue_position <= ?", @category.queue_position)
                                .order(queue_position: :desc)
                                .first
 
