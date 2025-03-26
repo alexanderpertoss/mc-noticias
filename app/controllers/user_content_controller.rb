@@ -1,10 +1,9 @@
 class UserContentController < ApplicationController
 	def index
-		# For getting the first category
-		# Category.find_by(queue_position: Category.maximum(:queue_position))
-
 		# Get all the categories ordered based on the queue_position
 		@categories = Category.order(queue_position: :desc)
+
+		@categories_for_main_page = Category.regular_categories
 
 		# Get all articles for main slider (Category #2 is the one for slider)
 		@slider_articles = Article.carousel
@@ -26,28 +25,15 @@ class UserContentController < ApplicationController
 		end
 
 		
-
-
 		# Gente que hace noticia category
 		@people_articles = Category.find(4).articles.limit 5
 
-		@multimedia_articles = Category.find(3).articles
+		@multimedia_articles = Article.multimedia
 		@number_of_multimedia_articles = @multimedia_articles.count
 		if @number_of_multimedia_articles > 4
 			@number_of_multimedia_articles = 4
 		end
-
-		@english_articles = Category.find(5).articles
-		@quechua_articles = Category.find(6).articles
-
-		# temporary
-		if !Category.find_by(id: 7).nil?
-			@intern_world_articles = Category.find(7).articles	
-		else
-			@intern_world_articles = []
-		end
 		
-
 		@trendind_articles = Article.order(visits: :desc).limit(5)
 
 		#Testing this model
@@ -55,8 +41,7 @@ class UserContentController < ApplicationController
 
 		@latest_news_pill = Category.find(8).articles.last
 
-		# ignore the categories that have a fixed part in the index
-		@categories_for_main_page = Category.where.not(id: [1, 2, 3, 4, 8])
+		
 	end
 
 	def history

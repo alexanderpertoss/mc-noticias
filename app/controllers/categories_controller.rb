@@ -3,7 +3,9 @@ class CategoriesController < ApplicationController
   layout "admin", except: %i[ show ]
 
   def index
-    @categories = Category.order(queue_position: :desc)
+    # excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
+    excluded_category_ids = [8, 3, 4]  # Categories to exclude
+    @categories = Category.where.not(id: excluded_category_ids).order(queue_position: :desc, id: :asc)
   end
 
   def show
@@ -62,7 +64,10 @@ class CategoriesController < ApplicationController
     end
     #@category.increment!(:queue_position) # Increments the value and saves it
 
-    @categories = Category.order(queue_position: :desc)
+    #@categories = Category.order(queue_position: :desc)
+    # excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
+    excluded_category_ids = [8, 3, 4]  # Categories to exclude
+    @categories = Category.where.not(id: excluded_category_ids).order(queue_position: :desc, id: :asc)
 
     respond_to do |format|
       format.turbo_stream
@@ -83,7 +88,11 @@ class CategoriesController < ApplicationController
     end
     #@category.decrement!(:queue_position) # Decrements the value and saves it
 
-    @categories = Category.order(queue_position: :desc)
+    #@categories = Category.order(queue_position: :desc)
+
+    # excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
+    excluded_category_ids = [8, 3, 4]  # Categories to exclude
+    @categories = Category.where.not(id: excluded_category_ids).order(queue_position: :desc, id: :asc)
 
     respond_to do |format|
       format.turbo_stream
