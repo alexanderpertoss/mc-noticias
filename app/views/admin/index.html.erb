@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="row">
+    <%# Card for Categories %>
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Categorías</h5>
+          <p class="card-text">Administra las categorías y el orden en el que aparecen en la página</p>
+          <a href="<%= categories_path %>" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
+
+    <%# Card for Articles %>
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Noticias</h5>
+          <p class="card-text">Administra las noticias de la página y su contenido</p>
+          <a href="<%= articles_path %>" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
+
+    <%# Card for Users (if applicable) %>
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Gente que hace noticia</h5>
+          <p class="card-text">Administra la sección de gente que hace noticia</p>
+          <a href="/people_news" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <%# Card for Categories %>
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Multimedia</h5>
+          <p class="card-text">Administra las sección de multimedia y su contenido</p>
+          <a href="<%= categories_path %>" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
+
+    <%# Card for Articles %>
+    <div class="col-md-4">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h5 class="card-title">Último momento</h5>
+          <p class="card-text">Administra la noticia de último momento que sale debajo del carusel principal</p>
+          <a href="/last_moment" class="btn btn-primary">Ingresar</a>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>

@@ -31,11 +31,13 @@
 
   <div class="form-group">
     <%= form.label "Categoría" %>
-    <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Selecciona una categoría"}, { class: "form-control" } %>
+
+    <%= form.collection_select :category_id, Category.all, :id, :name, 
+    { prompt: "Selecciona una categoría", selected: params[:people_news] ? 4 : @article.category_id }, { class: "form-control" } %>
   </div>
 
   <div class="form-group">
     <%= form.submit "Aceptar", class: "btn btn-primary" %>
-    <%= link_to "Cancelar", articles_path, class: "btn btn-danger" %>
+    <%= link_to "Cancelar", :back, class: "btn btn-danger" %>
   </div>
 <% end %>

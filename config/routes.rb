@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   end
 
   resources :articles
+  get '/people_news' => 'articles#people_news'
+  get '/last_moment' => 'articles#last_moment'
   resources :ads
 
-  get 'history' => 'user_content#history'
+  #get 'history' => 'user_content#history'
+  get '/admin' => 'admin#index'
 end

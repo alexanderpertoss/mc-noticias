@@ -45,6 +45,15 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def people_news
+    @articles = Article.people_news
+  end
+
+  def last_moment
+    article = Article.last_moment
+    redirect_to edit_article_path(article)
+  end
+
   private
     def set_article
       @article = Article.find(params[:id])

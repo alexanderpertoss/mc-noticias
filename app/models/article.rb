@@ -58,6 +58,7 @@ class Article < ApplicationRecord
   scope :multimedia, -> {
     #get the articles with category_id=3 for multimedia
     where(category_id: 3)
+      .order(created_at: :desc)
   }
 
   scope :regular_articles, -> {
@@ -65,6 +66,18 @@ class Article < ApplicationRecord
     excluded_category_ids = [8, 3, 4]  
 
     where.not(category_id: excluded_category_ids).order(created_at: :desc)
+  }
+
+  scope :people_news, -> {
+    #get the articles with category_id=4 for gente que hace noticia
+    where(category_id: 4)
+      .order(created_at: :desc)
+  }
+
+  scope :last_moment, -> {
+    #get the articles with category_id=8 for ultimo momento
+    where(category_id: 8)
+      .order(created_at: :desc).first
   }
 
   private
