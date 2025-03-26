@@ -7,8 +7,10 @@
         <div class="owl-carousel news-carousel carousel-item-<%= @number_of_multimedia_articles %> position-relative">
             <% @multimedia_articles.each do |article| %>
                 <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <% if !article.main_image_attachment.nil? %>
-                        <%= image_tag article.main_image, class: "img-fluid h-100", style: "object-fit: cover;" %>
+                    <% if article.video_url.present? %>
+                      <div class="video-thumbnail">
+                        <%= image_tag video_thumbnail_url(article.video_url), alt: "Video Thumbnail" %>
+                      </div>
                     <% end %>
                     <div class="overlay">
                         <div class="mb-2">

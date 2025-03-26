@@ -26,7 +26,7 @@ class UserContentController < ApplicationController
 
 		
 		# Gente que hace noticia category
-		@people_articles = Category.find(4).articles.limit 5
+		@people_articles = Article.people_news
 
 		@multimedia_articles = Article.multimedia
 		@number_of_multimedia_articles = @multimedia_articles.count

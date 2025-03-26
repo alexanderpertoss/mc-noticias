@@ -23,7 +23,11 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to articles_path
+      if params[:multimedia_news]
+        redirect_to '/multimedia', notice: 'Article created successfully!'
+      else
+        redirect_to articles_path
+      end
     else
       render :new, status: :unprocessable_entity
     end
