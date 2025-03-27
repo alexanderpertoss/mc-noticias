@@ -10,7 +10,9 @@
                         <div class="text-truncate">
                             <div class="news-marquee-wrapper">
                               <div class="news-marquee">
-                                <%= link_to @latest_news_pill.content.to_plain_text, "#", class: "text-white text-uppercase font-weight-semi-bold" %>
+                                    <span class="text-white text-uppercase font-weight-semi-bold">
+                                        <%= @latest_news_pill.content.to_plain_text %>
+                                    </span>
                               </div>
                             </div>
 
