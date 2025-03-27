@@ -8,8 +8,12 @@
                     <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3"
                         style="width: calc(100% - 170px); padding-right: 90px;">
                         <div class="text-truncate">
-                            
-                            <%= link_to @latest_news_pill.content.to_plain_text, "#", class: "text-white text-uppercase font-weight-semi-bold" %>
+                            <div class="news-marquee-wrapper">
+                              <div class="news-marquee">
+                                <%= link_to @latest_news_pill.content.to_plain_text, "#", class: "text-white text-uppercase font-weight-semi-bold" %>
+                              </div>
+                            </div>
+
                         </div>
                         
                     </div>

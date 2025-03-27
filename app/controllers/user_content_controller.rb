@@ -34,7 +34,7 @@ class UserContentController < ApplicationController
 		#Testing this model
 		@ad = Ad.first
 
-		@latest_news_pill = Category.find(8).articles.last
+		@latest_news_pill = Article.last_moment
 	end
 
 	def history

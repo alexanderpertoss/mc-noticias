@@ -9734,3 +9734,24 @@ h6,
 .admin-article-card {
   padding: 2px;
 }
+
+.news-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;  /* Hide the overflowing content */
+  position: relative;
+}
+
+.news-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 15s linear infinite; /* Adjust the duration for the speed */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);  /* Start position (outside the screen) */
+  }
+  100% {
+    transform: translateX(-100%); /* End position (outside the screen) */
+  }
+}
