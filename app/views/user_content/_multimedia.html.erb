@@ -1,30 +1,30 @@
+
 <!-- Featured News Slider Start -->
 <div class="container-fluidA pt-5A mb-3A">
     <div class="containerA">
         <div class="section-title">
             <h4 class="m-0 text-uppercase font-weight-bold">MULTIMEDIA</h4>
         </div>
+
         <div class="owl-carousel news-carousel carousel-item-<%= @number_of_multimedia_articles %> position-relative">
             <% @multimedia_articles.each do |article| %>
                 <div class="position-relative overflow-hidden" style="height: 300px;">
-                    <% if article.video_url.present? %>
-                      <div class="video-thumbnail">
-                        <%= image_tag video_thumbnail_url(article.video_url), alt: "Video Thumbnail" %>
-                      </div>
+                    <% if !article.main_image_attachment.nil? %>
+                        <%= image_tag article.main_image, class: "img-fluid h-100", style: "object-fit: cover;" %>
                     <% end %>
                     <div class="overlay">
                         <div class="mb-2">
-                            <%= link_to article.category.name, category_path(article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>
-                            <a class="text-white" href=""><small>
-                            <%= article.created_at.strftime("%d %b, %Y") %> 
-                            </small></a>
+                            <%= link_to article.category.name, category_path(article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %><br>
+                            <span class="text-white"><small>
+                                <%= article.created_at.strftime("%d %b, %Y") %>
+                            </small></span>
                         </div>
                         
-                        <%= link_to article.title, article.video_url, class: "h6 m-0 text-white text-uppercase font-weight-semi-bold", target: "_blank" %>
+                            <%= link_to (truncate(article.title, length: 120)), article.video_url, class: "h6 m-0 text-white text-uppercase font-weight-semi-bold", target: "blank" %>
+                        
                     </div>
                 </div>
             <% end %>
         </div>
     </div>
 </div>
-<!-- Featured News Slider End -->

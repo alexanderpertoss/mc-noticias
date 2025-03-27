@@ -23,10 +23,10 @@ class UserContentController < ApplicationController
 		# Gente que hace noticia category
 		@people_articles = Article.people_news
 
-		@multimedia_articles = Article.multimedia
+		@multimedia_articles = Article.multimedia.limit(8)
 		@number_of_multimedia_articles = @multimedia_articles.count
-		if @number_of_multimedia_articles > 4
-			@number_of_multimedia_articles = 4
+		if @number_of_multimedia_articles > 2
+			@number_of_multimedia_articles = 2
 		end
 		
 		@trendind_articles = Article.order(visits: :desc).limit(5)
