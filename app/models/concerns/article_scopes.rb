@@ -50,7 +50,6 @@ module ArticleScopes
 
       where(category_id: categories_ids)
         .order(created_at: :desc)
-        .limit(6)
     end
 
     def self.people_news

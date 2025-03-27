@@ -12,13 +12,16 @@
   </div>
 <% end %>
 
-<div class="row">
-  <% @articles.each do |article| %>
-    <div class="col-3 admin-article-card">
-      <%= render "article_card", article: article %>
-    </div>
-      
-  <% end %>  
+<div class="container">
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-3 admin-article-card">
+        <%= render "article_card", article: article %>
+      </div>
+        
+    <% end %>  
+  </div>  
 </div>
+
 
    
