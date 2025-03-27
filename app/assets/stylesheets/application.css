@@ -9730,3 +9730,7 @@ h6,
   transition: background-color 1s ease-in-out;
   background-color: transparent !important;
 }
+
+.admin-article-card {
+  padding: 5px;
+}
