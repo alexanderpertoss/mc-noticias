@@ -3,22 +3,22 @@ class UserContentController < ApplicationController
 		# Get all the categories ordered based on the queue_position
 		@categories = Category.order(queue_position: :desc)
 
+		# Get all the categories that go after the multimedia sections
 		@categories_for_main_page = Category.regular_categories
 
-		# Get all articles for main slider (Category #2 is the one for slider)
-		@slider_articles = Article.carousel
+		# Get all the available categories, which excludes multimedia, gente que hace notica and ultimo momento
+		available_categories = Category.available_categories
 
+		# Get all articles for main slider
+		@slider_articles = Article.carousel(available_categories)
 
-		# Get all articles except the ones for the slider
-		@articles = Article.where.not(category_id: [1, 2, 8])
-		@remaining_articles = Article.summary
+		@remaining_articles = Article.summary(available_categories)
 		
 		# At most, get 4 articles to go next to the main slider ones
-		@articles_for_top = Article.for_top
-		
+		@articles_for_top = Article.for_top(available_categories)
 
 		# Get all articles for 'noticias destacadas'
-		@highlithed_articles = Article.highlighted
+		@highlithed_articles = Article.highlighted(available_categories)
 		@number_of_highlighted_articles = @highlithed_articles.count
 		if @number_of_highlighted_articles > 4
 			@number_of_highlighted_articles = 4
@@ -40,8 +40,6 @@ class UserContentController < ApplicationController
 		@ad = Ad.first
 
 		@latest_news_pill = Category.find(8).articles.last
-
-		
 	end
 
 	def history

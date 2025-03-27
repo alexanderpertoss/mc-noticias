@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   layout "admin", except: [:show]
 
   def index
-    @articles = Article.regular_articles
+    @articles = Article.regular_articles(Category.available_categories)
   end
 
   def show
@@ -23,11 +23,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      if params[:multimedia_news]
-        redirect_to '/multimedia', notice: 'Article created successfully!'
-      else
-        redirect_to articles_path
-      end
+      redirect_to articles_path
     else
       render :new, status: :unprocessable_entity
     end
