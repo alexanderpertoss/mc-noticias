@@ -6,7 +6,7 @@
                 <!-- News Detail Start -->
                 <div class="position-relative mb-3">
                     
-                    <%= image_tag @article.main_image, class: "img-fluid w-100", style: "object-fit: cover;" if @article.main_image.attached? %>
+                    
                     <div class="bg-white border border-top-0 p-4">
                         <div class="mb-3">
                             <%= link_to @article.category.name, category_path(@article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" %>
@@ -14,7 +14,10 @@
                         </div>
                         <h1 class="mb-3 text-secondary text-uppercase font-weight-bold"><%= @article.title %></h1>
 
+                            <%= image_tag @article.main_image, class: "img-fluid w-100", style: "object-fit: cover;" if @article.main_image.attached? %>
+
                         	<%= @article.content %>   
+
                             <% @article.content.body.attachments.each do |attachment| %>
                               <% if attachment.image? %>
                                 <%= image_tag url_for(attachment) %>
