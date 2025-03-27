@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   layout "admin", except: [:show]
 
   def index
-    @articles = Article.regular_articles(Category.available_categories)
+    @articles = Article.regular_articles(Category.available_categories).search(params[:query]).order(created_at: :desc)
   end
 
   def show

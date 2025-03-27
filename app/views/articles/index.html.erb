@@ -3,6 +3,15 @@
 <%= link_to "Crear", new_article_path, class: "btn btn-primary" %>
 <br><br>
 
+<%= form_tag articles_path, method: :get, class: "mb-3" do %>
+  <div class="input-group">
+    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Búsqueda de noticias" %>
+    <div class="input-group-append">
+      <%= submit_tag "Buscar", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
 <div class="row">
   <% @articles.each do |article| %>
     <div class="col-3 admin-article-card">

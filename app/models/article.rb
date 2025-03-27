@@ -14,6 +14,18 @@ class Article < ApplicationRecord
 
   LANGUAGES = ["Español", "Quechua", "Inglés"].freeze
 
+  scope :search, ->(query) {
+      return if query.blank?
+
+      joins(:category).where(
+        "articles.title LIKE :q OR 
+         articles.author LIKE :q OR 
+         categories.name LIKE :q OR 
+         strftime('%Y-%m-%d', articles.created_at) = :q",
+        q: "%#{query}%"
+      )
+    }
+
   private
   def set_defaults
     self.visits ||= 0
