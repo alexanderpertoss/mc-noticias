@@ -18,12 +18,7 @@ class UserContentController < ApplicationController
 		@articles_for_top = Article.for_top(available_categories)
 
 		# Get all articles for 'noticias destacadas'
-		@highlithed_articles = Article.highlighted(available_categories)
-		@number_of_highlighted_articles = @highlithed_articles.count
-		if @number_of_highlighted_articles > 4
-			@number_of_highlighted_articles = 4
-		end
-
+		@highlighted_articles = Article.highlighted(available_categories)
 		
 		# Gente que hace noticia category
 		@people_articles = Article.people_news

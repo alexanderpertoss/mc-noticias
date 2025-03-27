@@ -14,7 +14,7 @@ class Category < ApplicationRecord
     	# excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
     	excluded_category_ids = [8, 3, 4]  
 
-   		#categories = where.not(id: excluded_category_ids).order(queue_position: :desc).offset(3)
+   		
    		categories = where.not(id: excluded_category_ids)
 		  .joins(:articles)
 		  .group('categories.id')

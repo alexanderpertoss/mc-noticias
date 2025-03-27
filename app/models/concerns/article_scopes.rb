@@ -30,9 +30,9 @@ module ArticleScopes
 
     def self.summary(available_categories)
       # Ignore the first three categories because those go at the top
-      available_categories = available_categories.offset(3)
+      categories_for_summary = available_categories.offset(3)
 
-      categories_ids = available_categories.is_a?(Array) ? available_categories.map(&:id) : available_categories.pluck(:id)
+      categories_ids = categories_for_summary.is_a?(Array) ? categories_for_summary.map(&:id) : categories_for_summary.pluck(:id)
 
       where(category_id: categories_ids)
         .order(created_at: :desc)

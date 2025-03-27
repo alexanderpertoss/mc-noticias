@@ -4,8 +4,8 @@
         <div class="section-title">
             <h4 class="m-0 text-uppercase font-weight-bold">Noticias destacadas</h4>
         </div>
-        <div class="owl-carousel news-carousel carousel-item-<%= @number_of_highlighted_articles %> position-relative">
-            <% @highlithed_articles.each do |article| %>
+        <div class="owl-carousel news-carousel carousel-item-<%= @highlighted_articles.count %> position-relative">
+            <% @highlighted_articles.each do |article| %>
                 <div class="position-relative overflow-hidden" style="height: 300px;">
                     <% if !article.main_image_attachment.nil? %>
                         <%= image_tag article.main_image, class: "img-fluid h-100", style: "object-fit: cover;" %>
