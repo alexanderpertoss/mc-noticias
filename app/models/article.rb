@@ -1,16 +1,16 @@
 class Article < ApplicationRecord
   include ArticleScopes
-
-  
   has_rich_text :content
   has_one_attached :main_image
   belongs_to :category
   
   after_initialize :set_defaults
   
-  validates :title, presence: true
-  validates :author, presence: true
+  validates :title, presence: true, length: { minimum: 5 }
+  validates :author, presence: true, length: { minimum: 5 }
   validates :language, presence: true
+  validates :video_url, format: { with: /\Ahttps?:\/\/[\S]+\z/, message: "must be a valid URL" }, allow_blank: true
+  validates :category_id, presence: true
 
   LANGUAGES = ["Español", "Quechua", "Inglés"].freeze
 

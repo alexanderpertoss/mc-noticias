@@ -24,15 +24,19 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
       if @article.is_multimedia?
+        flash[:success] = "Nota multimedia creada correctamente"
         redirect_to "/multimedia"
       else
         if @article.is_people_news?
+          flash[:success] = "Nota para Gente que Hace Noticia creada correctamente"
           redirect_to "/people_news"
         else
+          flash[:success] = "Nota creada correctamente"
           redirect_to articles_path
         end
       end
     else
+      flash[:error] = "Los campos no fueron llenados correctamente"
       render :new, status: :unprocessable_entity
     end
   end
@@ -43,19 +47,23 @@ class ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       if @article.is_multimedia?
+        flash[:success] = "Nota multimedia actualizada correctamente"
         redirect_to "/multimedia"
       else
         if @article.is_people_news?
           redirect_to "/people_news"
         else
           if @article.is_last_moment_news?
+            flash[:success] = "Nota para Gente que Hace Noticia actualizada correctamente"
             redirect_to edit_article_path(@article)
           else
+            flash[:success] = "Nota actualizada correctamente"
             redirect_to articles_path  
           end
         end
       end
     else
+      flash[:error] = "Los campos no fueron llenados correctamente"
       render :edit, status: :unprocessable_entity
     end
   end

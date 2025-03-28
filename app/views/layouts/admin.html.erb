@@ -35,7 +35,13 @@
         
       </nav>
       <!-- End of admin navbar -->
+    <br>
     <div class="container">
+      <% flash.each do |type, message| %>
+        <div data-controller="flash" class="alert alert-<%= type == "success" ? "success" : "danger" %>">
+          <%= message %>
+        </div>
+      <% end %>
       <%= yield %>  
     </div>
   </body>
