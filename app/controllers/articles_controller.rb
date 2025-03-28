@@ -48,7 +48,11 @@ class ArticlesController < ApplicationController
         if @article.is_people_news?
           redirect_to "/people_news"
         else
-          redirect_to articles_path
+          if @article.is_last_moment_news?
+            redirect_to edit_article_path(@article)
+          else
+            redirect_to articles_path  
+          end
         end
       end
     else

@@ -27,19 +27,15 @@ class Article < ApplicationRecord
   }
 
   def is_multimedia?
-    if category.id == 3
-      true
-    else
-      false
-    end
+    category.id == 3
   end
 
   def is_people_news?
-    if category.id == 4
-      true
-    else
-      false
-    end
+    category.id == 4
+  end
+
+  def is_last_moment_news?
+    category.id == 8
   end
 
   private
