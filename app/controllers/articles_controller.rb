@@ -42,15 +42,33 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to articles_path
+      if @article.is_multimedia?
+        redirect_to "/multimedia"
+      else
+        if @article.is_people_news?
+          redirect_to "/people_news"
+        else
+          redirect_to articles_path
+        end
+      end
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
+    is_article_multimedia = @article.is_multimedia?
+    is_article_people_news = @article.is_people_news?
     @article.destroy
-    redirect_to articles_path
+    if is_article_multimedia
+      redirect_to "/multimedia"
+    else
+      if is_article_people_news
+        redirect_to "/people_news"
+      else
+        redirect_to articles_path    
+      end
+    end
   end
 
   def people_news
