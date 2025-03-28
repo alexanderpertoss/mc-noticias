@@ -37,7 +37,7 @@
                                      <%= link_to subarticle.category.name, category_path(subarticle.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>
                                              
                                      <br>
-                                     <a class="text-white" href=""><small>12 dic, 2024</small></a>
+                                     <a class="text-white" href=""><small><%= subarticle.created_at.strftime("%d %b, %Y") %></small></a>
                                  </div>
                                  <%= link_to subarticle.title, article_path(subarticle), class: "h6 m-0 text-white text-uppercase font-weight-semi-bold" %>
                              </div>
