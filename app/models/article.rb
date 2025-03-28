@@ -15,16 +15,32 @@ class Article < ApplicationRecord
   LANGUAGES = ["Español", "Quechua", "Inglés"].freeze
 
   scope :search, ->(query) {
-      return if query.blank?
+    return if query.blank?
 
-      joins(:category).where(
-        "articles.title LIKE :q OR 
-         articles.author LIKE :q OR 
-         categories.name LIKE :q OR 
-         strftime('%Y-%m-%d', articles.created_at) = :q",
-        q: "%#{query}%"
-      )
-    }
+    joins(:category).where(
+      "articles.title LIKE :q OR 
+       articles.author LIKE :q OR 
+       categories.name LIKE :q OR 
+       strftime('%Y-%m-%d', articles.created_at) = :q",
+      q: "%#{query}%"
+    )
+  }
+
+  def is_multimedia?
+    if category.id == 3
+      true
+    else
+      false
+    end
+  end
+
+  def is_people_news?
+    if category.id == 4
+      true
+    else
+      false
+    end
+  end
 
   private
   def set_defaults

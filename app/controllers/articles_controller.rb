@@ -23,7 +23,15 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to articles_path
+      if @article.is_multimedia?
+        redirect_to "/multimedia"
+      else
+        if @article.is_people_news?
+          redirect_to "/people_news"
+        else
+          redirect_to articles_path
+        end
+      end
     else
       render :new, status: :unprocessable_entity
     end

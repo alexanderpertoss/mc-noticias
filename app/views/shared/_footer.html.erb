@@ -44,7 +44,7 @@
             <div class="m-n1">
                 <% if !@categories.nil? %>
                     <% @categories.each do |category| %>
-                        <%= link_to category.name, "#", class: "btn btn-sm btn-secondary m-1" %>
+                        <%= link_to category.name, category_path(category), class: "btn btn-sm btn-secondary m-1" %>
                     <% end %>
                 <% end %>
             </div>
