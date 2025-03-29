@@ -102,6 +102,7 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.expect(article: [ :title, :author, :content, :language, :video_url, :category_id, :main_image ])
+      #params.expect(article: [ :title, :author, :content, :language, :video_url, :main_image ])
+      params.expect(article: [:title, :author, :content, :language, :video_url, :main_image, { category_ids: [] }])
     end
 end

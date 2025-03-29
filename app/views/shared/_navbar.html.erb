@@ -1,10 +1,16 @@
 <!-- Navbar Start -->
 <div class="container-fluid p-2">
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
-        
+    <!-- Mobile Navbar (Fixed) -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark d-lg-none fixed-top py-2 px-lg-5">
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <!-- Centered Logo -->
+        <a href="/" class="navbar-brand mx-auto">
+            <%= image_tag "logo-negro.jpeg", style: "height: 40px;" %>
+        </a>
+
         <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
                 <div class="nav-item dropdown">
@@ -14,13 +20,9 @@
                             <%= link_to category.name, category_path(category), class: "dropdown-item" %>
                         <% end %>
                     </div>
-                    
                 </div>
 
-
                 <a href="/" class="nav-item nav-link" data-turbo="false">Inicio</a>
-                
-                
                 <a href="/categories/1" class="nav-item nav-link" data-turbo="false">Destacados</a>
 
                 <div class="nav-item dropdown">
@@ -30,21 +32,62 @@
                             <%= link_to category.name, category_path(category), class: "dropdown-item" %>
                         <% end %>
                     </div>
-                    
                 </div>
 
                 <%= link_to "Historial", "/history", class: "nav-item nav-link" %>
                 <a href="/" class="nav-item nav-link">Contacto</a>
-
-
             </div>
-            <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px;">
-                <input type="text" class="form-control border-0" placeholder="Ingresa tu búsqueda">
-                <div class="input-group-append">
-                    <button class="input-group-text bg-primary text-dark border-0 px-3"><i class="fa fa-search"></i></button>
+        </div>
+    </nav>
+
+    <!-- Desktop Navbar (Normal) -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark d-none d-lg-flex py-2 px-lg-5 position-static">
+        <div class="navbar-nav mr-auto py-0">
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <% @categories.each do |category| %>
+                        <%= link_to category.name, category_path(category), class: "dropdown-item" %>
+                    <% end %>
                 </div>
+            </div>
+
+            <a href="/" class="nav-item nav-link" data-turbo="false">Inicio</a>
+            <a href="/categories/1" class="nav-item nav-link" data-turbo="false">Destacados</a>
+
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Secciones</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <% @categories.each do |category| %>
+                        <%= link_to category.name, category_path(category), class: "dropdown-item" %>
+                    <% end %>
+                </div>
+            </div>
+
+            <%= link_to "Historial", "/history", class: "nav-item nav-link" %>
+            <a href="/" class="nav-item nav-link">Contacto</a>
+        </div>
+
+        <!-- Centered Logo -->
+        <a href="/" class="navbar-brand mx-auto">
+            <%= image_tag "logo-negro.jpeg", style: "height: 40px;" %>
+        </a>
+
+        <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
+            <input type="text" class="form-control border-0" placeholder="Ingresa tu búsqueda">
+            <div class="input-group-append">
+                <button class="input-group-text bg-primary text-dark border-0 px-3"><i class="fa fa-search"></i></button>
             </div>
         </div>
     </nav>
 </div>
 <!-- Navbar End -->
+
+<!-- Fix content overlapping when navbar is fixed -->
+<style>
+    @media (max-width: 991px) { /* Bootstrap lg breakpoint */
+        body {
+            padding-top: 56px; /* Adjust for navbar height */
+        }
+    }
+</style>
