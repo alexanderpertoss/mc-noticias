@@ -64,5 +64,9 @@ module ArticleScopes
         .order(created_at: :desc).first
     end
 
+    def self.trending
+      order(visits: :desc)
+    end
+
   end
 end

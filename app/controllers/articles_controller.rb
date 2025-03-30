@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_global_attributes, only: %i[ show ]
   layout "admin", except: [:show]
 
   def index
@@ -9,11 +10,6 @@ class ArticlesController < ApplicationController
   def show
     @article.visits += 1
     @article.save
-
-    @other_articles = Article.limit 3
-
-    # Used in sidebar
-    @categories = Category.all
   end
 
   def new
@@ -99,6 +95,14 @@ class ArticlesController < ApplicationController
   private
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def set_global_attributes
+      @trending = Article.trending.limit(3)
+      @other_articles = Article.order(:created_at).limit(3)
+
+      # Used in sidebar
+      @categories = Category.all
     end
 
     def article_params

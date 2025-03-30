@@ -29,7 +29,7 @@ class UserContentController < ApplicationController
 			@number_of_multimedia_articles = 2
 		end
 		
-		@trendind_articles = Article.order(visits: :desc).limit(5)
+		@trendind_articles = Article.trending.limit(3)
 
 		#Testing this model
 		@ad = Ad.first

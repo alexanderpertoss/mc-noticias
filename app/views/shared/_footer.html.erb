@@ -3,41 +3,30 @@
     <div class="row py-4">
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Contáctate</h5>
-            <p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i>Calle 123, Cochabamba, Bolivia</p>
-            <p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i>+591 345 67890</p>
-            <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+            <p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i>Edificio Comboni oficina 102 Calle Jordán esquina Av. San Martín, Cochabamba, Bolivia</p>
+            <p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i>+591 72273881</p>
+            <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i>mccomunicacion2022@gmail.com</p>
             <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Síguenos</h6>
             <div class="d-flex justify-content-start">
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="#"><i class="fab fa-instagram"></i></a>
-                <a class="btn btn-lg btn-secondary btn-lg-square" href="#"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://whatsapp.com/channel/0029Vb2oAcdGufIqGGfaEq1u" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://t.me/MCNoticiasBolivia" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="https://www.facebook.com/MCNoticiasBolivia" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square mr-2" href="ttps://www.instagram.com/mcnoticiasbolivia/?igsh=MWptbHVzeXNsN3ljcQ%3D%3D" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-lg btn-secondary btn-lg-square" href="https://www.youtube.com/@MCNoticiasBolivia" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Noticias populares</h5>
-            <div class="mb-3">
-                <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Economía</a>
-                    <a class="text-body" href=""><small>12 dic, 2024</small></a>
+            <% @trendind_articles.each do |article| %>
+                <div class="mb-3">
+                    <div class="mb-2">
+                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href=""><%= article.category.name %></a>
+                        <a class="text-body" href=""><small>12 dic, 2024</small></a>
+                    </div>
+                    
+                    <%= link_to article.title, article_path(article), class: "small text-body text-uppercase font-weight-medium" %>
                 </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
-            </div>
-            <div class="mb-3">
-                <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Economía</a>
-                    <a class="text-body" href=""><small>12 dic, 2024</small></a>
-                </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
-            </div>
-            <div class="">
-                <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Economía</a>
-                    <a class="text-body" href=""><small>12 dic, 2024</small></a>
-                </div>
-                <a class="small text-body text-uppercase font-weight-medium" href="">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
-            </div>
+            <% end %>
         </div>
         <div class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">Categorías</h5>
@@ -47,29 +36,6 @@
                         <%= link_to category.name, category_path(category), class: "btn btn-sm btn-secondary m-1" %>
                     <% end %>
                 <% end %>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 mb-5">
-            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Fotos</h5>
-            <div class="row">
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="<%= asset_path('news-110x110-1.jpg') %>" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="<%= asset_path('news-110x110-2.jpg') %>" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="<%= asset_path('news-110x110-3.jpg') %>" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="<%= asset_path('news-110x110-4.jpg') %>" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="<%= asset_path('news-110x110-5.jpg') %>" alt=""></a>
-                </div>
-                <div class="col-4 mb-3">
-                    <a href=""><img class="w-100" src="<%= asset_path('news-110x110-1.jpg') %>" alt=""></a>
-                </div>
             </div>
         </div>
     </div>
