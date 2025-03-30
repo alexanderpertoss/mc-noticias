@@ -21,7 +21,7 @@
                 <div class="mb-3">
                     <div class="mb-2">
                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href=""><%= article.category.name %></a>
-                        <a class="text-body" href=""><small>12 dic, 2024</small></a>
+                        <a class="text-body" href=""><small><%= article.created_at.strftime("%d %b, %Y") %></small></a>
                     </div>
                     
                     <%= link_to article.title, article_path(article), class: "small text-body text-uppercase font-weight-medium" %>
