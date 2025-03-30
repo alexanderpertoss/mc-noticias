@@ -9744,7 +9744,7 @@ h6,
 .news-marquee {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 12s linear infinite; /* Adjust the duration for the speed */
+  animation: marquee 20s linear infinite; /* Adjust the duration for the speed */
 }
 
 @keyframes marquee {
