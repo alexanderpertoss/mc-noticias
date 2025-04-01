@@ -1,0 +1,28 @@
+<h1>Podcasts</h1>
+
+<%= link_to "Crear podcast", new_podcast_path, class: "btn btn-primary" %>
+
+<br><br>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Enlace a YouTube</th>
+      <th scope="col" colspan="3">Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @podcasts.each do |podcast| %>
+  		<tr>
+  		  <th scope="row"><%= podcast.title %></th>
+        <th scope="row">
+          <iframe width="560" height="315" src="<%= podcast.link_to_podcast %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+        </th>
+  		  <td><%= link_to "Ver", podcast_path(podcast), class: "btn btn-success" %></td>
+  		  <td><%= link_to "Editar", edit_podcast_path(podcast), class: "btn btn-primary" %></td>
+  		  <td><%= button_to "Eliminar", podcast, method: :delete, data: { turbo_confirm: "Estás seguro?" }, class: "btn btn-danger" %></td>
+  		</tr>
+  	<% end %>
+    
+  </tbody>
+</table>

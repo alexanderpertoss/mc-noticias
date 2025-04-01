@@ -4,16 +4,23 @@
 
 <%= render "highlighted_news" %> 
 
-<div class="container-fluid bg-dark py-3 mb-3">
-    <div class="container">
-        <div class="row align-items-center bg-dark">
-            <div class="col bg-primary text-dark text-center font-weight-medium py-2" style="width: 170px;">OBSERVA NUESTROS PODCASTS</div><br><br><br>
-            <div class="col-12 text-center">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/lLH0uLnHLmU?si=5QGwkowX0R8aCh-1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<% if @podcasts.count > 0 %>
+    <div class="container-fluid bg-dark py-3 mb-3">
+        <div class="container">
+            <div class="row align-items-center bg-dark">
+                <div class="col-12 bg-primary text-dark text-center font-weight-medium py-2" style="width: 170px;">OBSERVA NUESTROS PODCASTS</div>
+                <br><br><br>
+                <div class="row">
+                    <% @podcasts.each do |podcast| %>
+                        <div class="col-6">
+                            <iframe width="560" height="315" src="<%= podcast.link_to_podcast %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        </div>
+                    <% end %>
+                </div>                
             </div>
         </div>
     </div>
-</div>
+<% end %>
 
 <%= render "news_summary" %> 
 

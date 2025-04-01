@@ -42,6 +42,8 @@ class UserContentController < ApplicationController
 		@ad = Ad.first
 
 		@latest_news_pill = Article.last_moment
+
+		@podcasts = Podcast.order(created_at: :desc).limit(2)
 	end
 
 	def history

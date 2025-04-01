@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   end
 
   resources :articles
+  resources :podcasts
+  
   get '/people_news' => 'articles#people_news'
   get '/last_moment' => 'articles#last_moment'
   get '/multimedia' => 'articles#multimedia'
