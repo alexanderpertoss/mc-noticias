@@ -36,7 +36,7 @@ class UserContentController < ApplicationController
 			@number_of_multimedia_articles = 2
 		end
 		
-		@trendind_articles = Article.trending.limit(3)
+		@trending_articles = Article.trending.limit(3)
 
 		#Testing this model
 		@ad = Ad.first
@@ -50,7 +50,7 @@ class UserContentController < ApplicationController
 		@people_articles = Category.find(4).articles.limit 5
 		#Testing this model
 		@ad = Ad.first
-		@trendind_articles = Article.order(visits: :desc).limit(5)
+		@trending_articles = Article.order(visits: :desc).limit(5)
 		# For the footer
 		@categories = Category.all
 	end
