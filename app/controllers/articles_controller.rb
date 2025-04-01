@@ -98,7 +98,7 @@ class ArticlesController < ApplicationController
     end
 
     def set_global_attributes
-      @trending = Article.trending.limit(3)
+      @trending_articles = Article.trending.limit(3)
       @other_articles = Article.order(:created_at).limit(3)
 
       # Used in sidebar
