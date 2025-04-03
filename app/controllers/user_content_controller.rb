@@ -19,6 +19,10 @@ class UserContentController < ApplicationController
 
 		# Get all articles for 'noticias destacadas'
 		@highlighted_articles = Article.highlighted(available_categories)
+		@highlighted_articles_count = @highlighted_articles.count
+		if @highlighted_articles_count > 4
+			@highlighted_articles_count = 4
+		end
 
 		if @highlighted_articles.count > 0
 			@highlighted_articles_category_name = @highlighted_articles.first.category.name
