@@ -106,6 +106,13 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.expect(article: [ :title, :author, :content, :language, :video_url, :category_id, :main_image ])
+      permitted = params.expect(article: [ :title, :author, :content, :language, :video_url, :category_id, :main_image ])
+
+        # Extract the first selected category
+        if params[:category_ids].present?
+          permitted[:category_id] = params[:category_ids].first
+        end
+
+        permitted
     end
 end
