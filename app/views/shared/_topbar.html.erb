@@ -5,13 +5,10 @@
             <nav class="navbar navbar-expand-sm bg-dark p-0">
                 <ul class="navbar-nav ml-n2">
                     <li class="nav-item border-right border-secondary">
-                        <a class="nav-link text-body small" href="#"><%= Date.today.strftime("%d %b, %Y") %></a>
+                        <span class="nav-link text-body small" href="#"><%= Date.today.strftime("%d/%m/%Y") %></span>
                     </li>
                     <li class="nav-item border-right border-secondary">
-                        <a class="nav-link text-body small" href="#">Publicitar</a>
-                    </li>
-                    <li class="nav-item border-right border-secondary">
-                        <a class="nav-link text-body small" href="#">Contacto</a>
+                        <%= link_to "Contacto", "/contacto", class: "nav-link text-body small" %>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-body small" href="#">Iniciar sesión</a>
@@ -79,7 +76,5 @@
             </div>
         </div>
     </div>
-    
-
 </div>
 <!-- Topbar End -->

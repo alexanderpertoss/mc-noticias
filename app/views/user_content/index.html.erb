@@ -1,34 +1,18 @@
-<%= render "slider" %>
+<%= render "user_content/partials/slider" %>
 
-<%= render "breaking_news" %> 
+<%= render "user_content/partials/breaking_news" %> 
 
-<%= render "highlighted_news" %> 
+<%= render "user_content/partials/highlighted_news" %> 
 
-<% if @podcasts.count > 0 %>
-    <div class="container-fluid bg-dark py-3 mb-3">
-        <div class="container">
-            <div class="row align-items-center bg-dark">
-                <div class="col-12 bg-primary text-dark text-center font-weight-medium py-2" style="width: 170px;">OBSERVA NUESTROS PODCASTS</div>
-                <br><br><br>
-                <div class="row">
-                    <% @podcasts.each do |podcast| %>
-                        <div class="col-6">
-                            <iframe width="560" height="315" src="<%= podcast.link_to_podcast %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    <% end %>
-                </div>                
-            </div>
-        </div>
-    </div>
-<% end %>
+<%= render "user_content/partials/podcasts" %>
 
-<%= render "news_summary" %> 
+<%= render "user_content/partials/news_summary" %> 
 
-<%= render "multimedia" %>
+<%= render "user_content/partials/multimedia" %>
             
 <BR>
 
-<%= render "news_categories" %>
+<%= render "user_content/partials/news_categories" %>
 
 </div>
 
@@ -36,9 +20,9 @@
             
             <div class="col-lg-4">
                 
-                <%= render "social_media" %>
+                <%= render "user_content/partials/social_media" %>
 
-                <%= render "people_news" %>
+                <%= render "user_content/partials/people_news" %>
 
                 
 
@@ -54,7 +38,7 @@
                 </div>
                 <!-- Ads End -->
 
-                <%= render "trending" %>
+                <%= render "user_content/partials/trending" %>
 
 
                 

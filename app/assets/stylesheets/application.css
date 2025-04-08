@@ -9510,6 +9510,10 @@ h6,
   z-index: 99;
 }
 
+.video-container {
+  padding: 5px;
+}
+
 .whatsapp-link {
   position: fixed;
   color: white;

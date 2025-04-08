@@ -1,8 +1,7 @@
 class UserContentController < ApplicationController
-	def index
-		# Get all the categories ordered based on the queue_position
-		@categories = Category.order(queue_position: :desc)
+	before_action :set_global_attributes
 
+	def index		
 		# Get all the categories that go after the multimedia sections
 		@categories_for_main_page = Category.regular_categories
 
@@ -51,13 +50,17 @@ class UserContentController < ApplicationController
 	end
 
 	def history
-		@articles = Article.where.not(category_id: [8]).order(visits: :asc)
-		# Gente que hace noticia category
-		@people_articles = Category.find(4).articles.limit 5
-		#Testing this model
-		@ad = Ad.first
-		@trending_articles = Article.order(visits: :desc).limit(5)
-		# For the footer
-		@categories = Category.all
+		
+	end
+
+	def contact
+		
+	end
+
+	private
+	def set_global_attributes
+		@categories = Category.order(queue_position: :desc)
+
+		@trending_articles = Article.trending.limit(3)
 	end
 end
