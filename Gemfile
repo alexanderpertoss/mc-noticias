@@ -68,4 +68,6 @@ gem "aws-sdk-s3", "~> 1.180", :require => false
 
 gem "litestream", "~> 0.12.0"
 
+gem "faraday"
+
 #gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"
