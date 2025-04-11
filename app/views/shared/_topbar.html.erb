@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="col-lg-1 small-ad">
-            
+            <%= image_tag @small_ad.main_image, class: "img-fluid" if @small_ad.main_image.attached? %>
         </div>
     </div>
 </div>

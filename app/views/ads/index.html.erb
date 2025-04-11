@@ -1,14 +1,12 @@
 <h1>Publicidad</h1>
 
-<%= link_to "Crear publicidad", new_ad_path, class: "btn btn-primary" %>
-
 <br><br>
 <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Nombre</th>
       <th scope="col">Imagen</th>
-      <th scope="col" colspan="3">Opciones</th>
+      <th scope="col" colspan="2">Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -18,7 +16,6 @@
   		  <td><%= image_tag ad.main_image if ad.main_image.attached? %></td>
   		  <td><%= link_to "Ver", ad_path(ad), class: "btn btn-success" %></td>
   		  <td><%= link_to "Editar", edit_ad_path(ad), class: "btn btn-primary" %></td>
-  		  <td><%= button_to "Eliminar", ad, method: :delete, data: { turbo_confirm: "Estás seguro?" }, class: "btn btn-danger" %></td>
   		</tr>
   	<% end %>
     

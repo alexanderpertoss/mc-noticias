@@ -29,7 +29,6 @@ class UserContentController < ApplicationController
 			@highlighted_articles_category_name = "Noticias destacadas"
 		end
 		
-		
 		# Gente que hace noticia category
 		@people_articles = Article.people_news
 
@@ -38,11 +37,6 @@ class UserContentController < ApplicationController
 		if @number_of_multimedia_articles > 2
 			@number_of_multimedia_articles = 2
 		end
-		
-		@trending_articles = Article.trending.limit(3)
-
-		#Testing this model
-		@ad = Ad.first
 
 		@latest_news_pill = Article.last_moment
 
@@ -60,7 +54,11 @@ class UserContentController < ApplicationController
 	private
 	def set_global_attributes
 		@categories = Category.order(queue_position: :desc)
-
 		@trending_articles = Article.trending.limit(3)
+
+
+		@small_ad = Ad.small_ad
+		@lateral_ad = Ad.lateral_ad
+		@bottom_ad = Ad.bottom_ad
 	end
 end
