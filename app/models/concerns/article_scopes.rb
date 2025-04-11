@@ -2,7 +2,6 @@ module ArticleScopes
   extend ActiveSupport::Concern
 
   included do
-
     def self.carousel(available_categories)
       categories_ids = available_categories.is_a?(Array) ? available_categories.map(&:id) : available_categories.pluck(:id)
 
@@ -67,6 +66,5 @@ module ArticleScopes
     def self.trending
       order(visits: :desc)
     end
-
   end
 end
