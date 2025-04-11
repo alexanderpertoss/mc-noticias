@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
 	before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :set_global_attributes, only: %i[ show ]
   layout "admin", except: %i[ show ]
 
   def index
@@ -9,17 +10,11 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    #Testing this model
-    @ad = Ad.first
-
-    # For the footer
-    @categories = Category.all
-
     @articles = @category.articles
 
     # Gente que hace noticia category
-    @people_articles = Category.find(4).articles.limit 5
-    @trending_articles = Article.order(visits: :desc).limit(5)
+    @people_articles = Article.people_news.limit(5)
+    @trending_articles = Article.trending.limit(5)
   end
 
   def new
@@ -103,6 +98,18 @@ class CategoriesController < ApplicationController
   private
     def set_category
       @category = Category.find(params[:id])
+    end
+
+    def set_global_attributes
+      @trending_articles = Article.trending.limit(3)
+      @other_articles = Article.order(:created_at).limit(3)
+
+      # Used in sidebar
+      @categories = Category.all
+
+      @small_ad = Ad.small_ad
+      @lateral_ad = Ad.lateral_ad
+      @bottom_ad = Ad.bottom_ad
     end
 
     def category_params
