@@ -17,7 +17,7 @@
                                             
                                             <a class="text-body" href=""><small><%= article.created_at.strftime("%d %b, %Y") %></small></a>
                                         </div>
-                                        <%= link_to (truncate(article.title, length: 47)), article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold" %>
+                                        <%= link_to (truncate(article.title, length: 40)), article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold" %>
                                     </div>    
                                 </div>
                                 
