@@ -6,7 +6,7 @@
 	            <%= link_to "Ver más", category_path(category), class: "text-secondary font-weight-medium text-decoration-none" %>
 	        </div>
 	    </div>
-	    <% category.articles.limit(4).each do |article| %>
+	    <% category.articles.order(created_at: :desc).limit(4).each do |article| %>
 	        <div class="col-lg-6">
 	            <div class="position-relative mb-3">
 	            	<% if !article.main_image_attachment.nil? %>
