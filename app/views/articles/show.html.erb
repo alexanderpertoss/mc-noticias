@@ -1,3 +1,7 @@
+<% if @article.main_image.attached? %>
+  <% content_for :og_image, url_for(@article.main_image) %>
+<% end %>
+
 <!-- News With Sidebar Start -->
 <div class="container-fluid">
     <div class="container">
