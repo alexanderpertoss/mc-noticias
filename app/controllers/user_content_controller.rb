@@ -41,6 +41,10 @@ class UserContentController < ApplicationController
 		@articles = Article.order(created_at: :desc).limit(10)
 	end
 
+	def other_networks
+		
+	end
+
 	def contact
 		
 	end
