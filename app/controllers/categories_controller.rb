@@ -14,7 +14,6 @@ class CategoriesController < ApplicationController
 
     # Gente que hace noticia category
     @people_articles = Article.people_news.limit(5)
-    @trending_articles = Article.trending.limit(5)
   end
 
   def new
