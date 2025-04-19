@@ -9759,3 +9759,6 @@ h6,
     transform: translateX(-100%); /* End position (outside the screen) */
   }
 }
+.people-news-title {
+  font-size: 13px;
+}

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "user_content#index"
   get '/contacto' => 'user_content#contact'
+  get '/history' => 'user_content#history'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
