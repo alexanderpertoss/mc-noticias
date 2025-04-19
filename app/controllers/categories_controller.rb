@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @articles = @category.articles
+    @articles = @category.articles.order(created_at: :desc)
 
     # Gente que hace noticia category
     @people_articles = Article.people_news.limit(5)
@@ -102,7 +102,7 @@ class CategoriesController < ApplicationController
 
     def set_global_attributes
       @trending_articles = Article.trending.limit(3)
-      @other_articles = Article.order(:created_at).limit(3)
+      @other_articles = Article.order(created_at: :desc).limit(4)
 
       # Used in sidebar
       @categories = Category.all

@@ -1,6 +1,3 @@
-
-
-
 <!-- News With Sidebar Start -->
 <div class="container-fluid">
     <div class="container">
@@ -12,7 +9,7 @@
                             <h4 class="m-0 text-uppercase font-weight-bold"><%= @category.name %></h4>
                         </div>
                     </div>
-                    <% @category.articles.each do |article| %>
+                    <% @articles.each do |article| %>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
                                 <% if !article.main_image_attachment.nil? %>
@@ -45,88 +42,10 @@
                             </div>
                         </div>
                     <% end %>
-                    
-                    
-                    
                 </div>
-            
-
-
-
-
-
-
             </div>
 
             <div class="col-lg-4">
-                <%= render "user_content/partials/social_media" %>
-            
-                
-
-
-                <!-- Popular News Start -->
-                <div class="mb-3">
-                    <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">GENTE QUE HACE NOTICIA</h4>
-                    </div>
-                    <div class="bg-white border border-top-0 p-3">
-                        <% @people_articles.each do |article| %>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <% if !article.main_image_attachment.nil? %>
-                                    <%= image_tag article.main_image, class: "img-fluid", style: "height: 110px" %>
-                                <% end %>
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        
-                                        <a class="text-body" href=""><small><%= article.created_at.strftime("%d %b, %Y") %></small></a>
-                                    </div>
-                                    <%= link_to (truncate(article.title, length: 120)), article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold" %>
-                                </div>
-                            </div>
-                        <% end %>
-                    </div>
-                </div>
-                <!-- Popular News End -->
-
-
-                <!-- Ads Start -->
-                <div class="mb-3">
-                    <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Publicidad</h4>
-                    </div>
-                    <div class="bg-white text-center border border-top-0 p-3">
-                        <a href=""><%= image_tag @lateral_ad.main_image, class: "img-fluid w-100" if @lateral_ad.main_image.attached? %></a>
-                    </div>
-                </div>
-                <!-- Ads End -->
-
-                <!-- Popular News Start -->
-                <div class="mb-3">
-                    <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">En tendencia</h4>
-                    </div>
-                    <div class="bg-white border border-top-0 p-3">
-                        <% @trending_articles.each do |article| %>
-                            <div class="d-flex align-items-center bg-white mb-3" style="height: 110px;">
-                                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                                    <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href=""><%= article.category.name %></a><br>
-                                        <a class="text-body" href=""><small>12 dic, 2024</small></a>
-                                    </div>
-                                    
-                                    <%= link_to article.title, article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold" %>
-                                </div>
-                            </div>
-                        <% end %>
-                        
-                        
-                        
-                        
-                        
-                    </div>
-                </div>
-                <!-- Popular News End -->
-
 
                 <!-- Tags Start -->
                 <div class="mb-3">
@@ -142,9 +61,34 @@
                     </div>
                 </div>
                 <!-- Tags End -->
+
+                <%= render "user_content/partials/recent" %>
+
+                <%= render "user_content/partials/social_media" %>
+            
+                <%= render "user_content/partials/people_news" %>
+
+
+              
+
+
+                <!-- Ads Start -->
+                <div class="mb-3">
+                    <div class="section-title mb-0">
+                        <h4 class="m-0 text-uppercase font-weight-bold">Publicidad</h4>
+                    </div>
+                    <div class="bg-white text-center border border-top-0 p-3">
+                        <a href=""><%= image_tag @lateral_ad.main_image, class: "img-fluid w-100" if @lateral_ad.main_image.attached? %></a>
+                    </div>
+                </div>
+                <!-- Ads End -->
+
+                <%= render "user_content/partials/trending" %>
+
+
+                
             </div>
             </div>
         </div>
     </div>
-</div>
-<!-- News With Sidebar End -->
+
