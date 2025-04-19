@@ -17,9 +17,20 @@
                             <%= link_to @article.category.name, category_path(@article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" %>
                             <span class="text-body"><%= (@article.created_at-4.hours).strftime("%H:%M del %d %b, %Y") %></span>
                         </div>
-                        <h1 class="mb-3 text-secondary text-uppercase font-weight-bold"><%= @article.title %></h1>
 
+                        <% if @article.is_multimedia? %>
+                            <h1 class="mb-3 text-secondary text-uppercase font-weight-bold"><%= link_to @article.title, @article.video_url, target: "_blank" %></h1>
+                        <% else %>
+                            <h1 class="mb-3 text-secondary text-uppercase font-weight-bold"><%= @article.title %></h1>
+                        <% end %>
+
+                        <% if @article.is_multimedia? %>
+                            <a href="<%= @article.video_url %>" target="_blank">
+                                <%= image_tag @article.main_image, class: "img-fluid w-100", style: "object-fit: cover;" if @article.main_image.attached? %>
+                            </a>
+                        <% else %>
                             <%= image_tag @article.main_image, class: "img-fluid w-100", style: "object-fit: cover;" if @article.main_image.attached? %>
+                        <% end %>
 
                         	<%= @article.content %>   
                     </div>
