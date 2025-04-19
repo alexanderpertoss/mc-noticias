@@ -25,9 +25,6 @@ class UserContentController < ApplicationController
 		else
 			@highlighted_articles_category_name = "Noticias destacadas"
 		end
-		
-		# Gente que hace noticia category
-		@people_articles = Article.people_news
 
 		@multimedia_articles = Article.multimedia.limit(8)
 		@number_of_multimedia_articles = @multimedia_articles.count
@@ -41,7 +38,7 @@ class UserContentController < ApplicationController
 	end
 
 	def history
-		
+		@articles = Article.order(created_at: :desc).limit(10)
 	end
 
 	def contact
@@ -52,10 +49,13 @@ class UserContentController < ApplicationController
 	def set_global_attributes
 		# Get all the available categories, which excludes multimedia, gente que hace notica and ultimo momento
 		@available_categories = Category.available_categories
-
 		@categories = Category.order(queue_position: :desc)
+
 		@trending_articles = Article.trending.limit(3)
 		@other_articles = Article.regular_articles(@available_categories).limit(4)	
+
+		# Gente que hace noticia category
+		@people_articles = Article.people_news
 
 		@small_ad = Ad.small_ad
 		@lateral_ad = Ad.lateral_ad
