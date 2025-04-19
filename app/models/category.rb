@@ -23,6 +23,11 @@ class Category < ApplicationRecord
 		  .offset(3)
   	end
 
+  	def is_multimedia?
+  		# Multimedia category is 3
+  		category.id == 3
+  	end
+
   	private
   	def set_defaults
   	  self.queue_position ||= 0
