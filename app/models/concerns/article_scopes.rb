@@ -8,7 +8,6 @@ module ArticleScopes
       joins(:category)
         .where(categories: { id: categories_ids })  # Filter articles by these category IDs
         .order("categories.queue_position DESC, articles.created_at DESC")
-        .limit(3)
     end
 
     def self.for_top(available_categories)
@@ -16,7 +15,6 @@ module ArticleScopes
 
       where(category_id: second_category_id)
         .order(created_at: :desc)
-        .limit(4)
     end
 
     def self.highlighted(available_categories)
