@@ -55,6 +55,7 @@ class UserContentController < ApplicationController
 	def set_global_attributes
 		@categories = Category.order(queue_position: :desc)
 		@trending_articles = Article.trending.limit(3)
+		@other_articles = Article.order(created_at: :desc).limit(4)
 
 
 		@small_ad = Ad.small_ad
