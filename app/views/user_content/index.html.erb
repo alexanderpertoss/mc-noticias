@@ -15,66 +15,49 @@
 </div>
 
             
-            <div class="col-lg-4">
-                
-                <%= render "user_content/partials/recent" %>
+<div class="col-lg-4">
+    
+    <%= render "user_content/partials/recent" %>
 
-                <%= render "user_content/partials/social_media" %>
+    <%= render "user_content/partials/social_media" %>
 
-                <%= render "user_content/partials/people_news" %>
+    <%= render "user_content/partials/people_news" %>
 
-                
-
-
-                <!-- Ads Start -->
-                <div class="mb-3">
-                    <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Publicidad</h4>
-                    </div>
-                    <div class="bg-white text-center border border-top-0 p-3">
-                        <a href=""><%= image_tag @lateral_ad.main_image, class: "img-fluid w-100" if @lateral_ad.main_image.attached? %></a>
-                    </div>
-                </div>
-                <!-- Ads End -->
-
-                <%= render "user_content/partials/trending" %>
+    
 
 
-                
+    <!-- Ads Start -->
+    <div class="mb-3">
+        <div class="section-title mb-0">
+            <h4 class="m-0 text-uppercase font-weight-bold">Publicidad</h4>
+        </div>
+        <div class="bg-white text-center border border-top-0 p-3">
+            <a href=""><%= image_tag @lateral_ad.main_image, class: "img-fluid w-100" if @lateral_ad.main_image.attached? %></a>
+        </div>
+    </div>
+    <!-- Ads End -->
 
-                <!-- Newsletter Start 
-                <div class="mb-3">
-                    <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Boletín de noticas</h4>
-                    </div>
-                    <div class="bg-white text-center border border-top-0 p-3">
-                        <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                        <div class="input-group mb-2" style="width: 100%;">
-                            <input type="text" class="form-control form-control-lg" placeholder="Ingresa tu correo">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary font-weight-bold px-3">Suscribirme</button>
-                            </div>
-                        </div>
-                        <small>Lorem ipsum dolor sit amet elit</small>
-                    </div>
-                </div>
-                Newsletter End -->
+    <%= render "user_content/partials/trending" %>
 
-                <!-- Tags Start -->
-                <div class="mb-3">
-                    <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Etiquetas</h4>
-                    </div>
-                    <div class="bg-white border border-top-0 p-3">
-                        <div class="d-flex flex-wrap m-n1">
-                            <% @categories.each do |category| %>
-                                <%= link_to category.name, category_path(category), class: "btn btn-sm btn-outline-secondary m-1" %>
-                            <% end %>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tags End -->
+
+    <!-- Tags Start -->
+    <div class="mb-3">
+        <div class="section-title mb-0">
+            <h4 class="m-0 text-uppercase font-weight-bold">Etiquetas</h4>
+        </div>
+        <div class="bg-white border border-top-0 p-3">
+            <div class="d-flex flex-wrap m-n1">
+                <% @categories.each do |category| %>
+                    <%= link_to category.name, category_path(category), class: "btn btn-sm btn-outline-secondary m-1" %>
+                <% end %>
             </div>
+        </div>
+    </div>
+    <!-- Tags End -->
+</div>
+
+
+            
         </div>
     </div>
 </div>

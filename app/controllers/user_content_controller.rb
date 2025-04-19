@@ -6,12 +6,12 @@ class UserContentController < ApplicationController
 		@categories_for_main_page = Category.regular_categories		
 
 		# Get all articles for main slider
-		@slider_articles = Article.carousel(@available_categories)
+		carousel_articles = Article.carousel(@available_categories)
+		@slider_articles = carousel_articles.limit(3)
+		# At most, get 4 articles to go next to the main slider ones
+		@articles_for_top = carousel_articles.offset(3).limit(4)
 
 		@remaining_articles = Article.summary(@available_categories)
-		
-		# At most, get 4 articles to go next to the main slider ones
-		@articles_for_top = Article.for_top(@available_categories)
 
 		# Get all articles for 'noticias destacadas'
 		@highlighted_articles = Article.highlighted(@available_categories)
