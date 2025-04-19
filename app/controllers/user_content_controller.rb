@@ -3,21 +3,18 @@ class UserContentController < ApplicationController
 
 	def index		
 		# Get all the categories that go after the multimedia sections
-		@categories_for_main_page = Category.regular_categories
-
-		# Get all the available categories, which excludes multimedia, gente que hace notica and ultimo momento
-		available_categories = Category.available_categories
+		@categories_for_main_page = Category.regular_categories		
 
 		# Get all articles for main slider
-		@slider_articles = Article.carousel(available_categories)
+		@slider_articles = Article.carousel(@available_categories)
 
-		@remaining_articles = Article.summary(available_categories)
+		@remaining_articles = Article.summary(@available_categories)
 		
 		# At most, get 4 articles to go next to the main slider ones
-		@articles_for_top = Article.for_top(available_categories)
+		@articles_for_top = Article.for_top(@available_categories)
 
 		# Get all articles for 'noticias destacadas'
-		@highlighted_articles = Article.highlighted(available_categories)
+		@highlighted_articles = Article.highlighted(@available_categories)
 		@highlighted_articles_count = @highlighted_articles.count
 		if @highlighted_articles_count > 4
 			@highlighted_articles_count = 4
@@ -53,10 +50,12 @@ class UserContentController < ApplicationController
 
 	private
 	def set_global_attributes
+		# Get all the available categories, which excludes multimedia, gente que hace notica and ultimo momento
+		@available_categories = Category.available_categories
+
 		@categories = Category.order(queue_position: :desc)
 		@trending_articles = Article.trending.limit(3)
-		@other_articles = Article.order(created_at: :desc).limit(4)
-
+		@other_articles = Article.regular_articles(@available_categories).limit(4)	
 
 		@small_ad = Ad.small_ad
 		@lateral_ad = Ad.lateral_ad
