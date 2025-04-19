@@ -13,7 +13,9 @@
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
                                 <% if !article.main_image_attachment.nil? %>
-                                    <%= image_tag article.main_image, class: "img-fluid w-100" %>
+                                    <div class="responsive-img-wrapper">
+                                        <%= image_tag article.main_image, class: "img-fluid w-100" %>
+                                    </div>
                                 <% end %>
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
@@ -61,7 +63,7 @@
                 </div>
             </div>
             <!-- Tags End -->
-            
+
             <%= render "user_content/partials/people_news" %>
 
             <%= render "user_content/partials/social_media" %>
