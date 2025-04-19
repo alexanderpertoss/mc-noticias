@@ -50,10 +50,24 @@
             </div>
 
             <div class="col-lg-4">
+                <!-- Tags Start -->
+                <div class="mb-3">
+                    <div class="section-title mb-0">
+                        <h4 class="m-0 text-uppercase font-weight-bold">Etiquetas</h4>
+                    </div>
+                    <div class="bg-white border border-top-0 p-3">
+                        <div class="d-flex flex-wrap m-n1">
+                            <% @categories.each do |category| %>
+                                <%= link_to category.name, "#", class: "btn btn-sm btn-outline-secondary m-1" %>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tags End -->
                 <!-- Popular News Start -->
                 <div class="mb-3">
                     <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Más noticias</h4>
+                        <h4 class="m-0 text-uppercase font-weight-bold">Noticias recientes</h4>
                     </div>
                     <div class="bg-white border border-top-0 p-3">
                     	<% @other_articles.each do |article| %>
@@ -75,20 +89,7 @@
 
                 
 
-                <!-- Tags Start -->
-                <div class="mb-3">
-                    <div class="section-title mb-0">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Etiquetas</h4>
-                    </div>
-                    <div class="bg-white border border-top-0 p-3">
-                        <div class="d-flex flex-wrap m-n1">
-                        	<% @categories.each do |category| %>
-                        		<%= link_to category.name, "#", class: "btn btn-sm btn-outline-secondary m-1" %>
-                        	<% end %>
-                        </div>
-                    </div>
-                </div>
-                <!-- Tags End -->
+                
             </div>
         </div>
     </div>
