@@ -14,14 +14,18 @@
 
         <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
-                <div class="nav-item dropdown d-sm d-xs">
-                    <a href="#" class="nav-link" data-toggle="dropdown"><i class="fa fa-bars"></i></a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <% @categories.each do |category| %>
-                            <%= link_to category.name, category_path(category), class: "dropdown-item" %>
+                <br>
+                <div class="nav-item">
+                    <%= form_with url: "/search", method: :get, local: true, class: "input-group ml-auto" do %>
+                      <%= text_field_tag :q, params[:q], class: "form-control border-0", placeholder: "Ingresa tu búsqueda" %>
+                      <div class="input-group-append">
+                        <%= button_tag type: "submit", class: "input-group-text bg-primary text-dark border-0 px-3" do %>
+                          <i class="fa fa-search"></i>
                         <% end %>
-                    </div>
+                      </div>
+                    <% end %>
                 </div>
+                <br>
 
                 <%= link_to "Inicio", root_path, class: "nav-item nav-link", data: { turbo: false } %>
 
@@ -37,6 +41,8 @@
                 <%= link_to "Historial", "/history", class: "nav-item nav-link" %>
                 
                 <%= link_to "Contacto", '/contacto', class: "nav-item nav-link" %>
+
+                <br>
             </div>
         </div>
     </nav>
