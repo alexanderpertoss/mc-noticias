@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <%= link_to "Inicio", root_path, class: "nav-item nav-link" %>
+                <%= link_to "Inicio", root_path, class: "nav-item nav-link", data: { turbo: false } %>
 
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Secciones</a>
@@ -53,8 +53,7 @@
                 </div>
             </div>
 
-            <!--<a href="/" class="nav-item nav-link" data-turbo="false">Inicio</a>-->
-            <%= link_to "Inicio", root_path, class: "nav-item nav-link" %>
+            <%= link_to "Inicio", root_path, class: "nav-item nav-link", data: { turbo: false } %>
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Secciones</a>
