@@ -7,10 +7,10 @@
         </button>
 
         <!-- Centered Logo -->
-        <a href="/" class="navbar-brand mx-auto">
+        <span class="navbar-brand mx-auto">
             <%= image_tag "logo-negro.jpeg", style: "height: 50px;" %>
             <span style="font-size: 11px;">SOLO LO MÁS IMPORTANTE</span>
-        </a>
+        </span>
 
         <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
             <div class="navbar-nav mr-auto py-0">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
 
-                <a href="/" class="nav-item nav-link" data-turbo="false">Inicio</a>
+                <%= link_to "Inicio", root_path, class: "nav-item nav-link" %>
 
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Secciones</a>
@@ -53,7 +53,8 @@
                 </div>
             </div>
 
-            <a href="/" class="nav-item nav-link" data-turbo="false">Inicio</a>
+            <!--<a href="/" class="nav-item nav-link" data-turbo="false">Inicio</a>-->
+            <%= link_to "Inicio", root_path, class: "nav-item nav-link" %>
 
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Secciones</a>
