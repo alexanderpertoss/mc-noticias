@@ -21,10 +21,10 @@
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
                                             href=""><%= article.category.name %></a>
-                                        <a class="text-body" href=""><small>
+                                        <span><small>
                                             <%= article.created_at.strftime("%d %b, %Y") %>
                                                 
-                                            </small></a>
+                                            </small></span>
                                     </div>
                                     <%= link_to article.title, article_path(article), class: "h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" %>
                                     <p class="m-0">

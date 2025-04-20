@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  allow_unauthenticated_access only: %i[ show ]
 	before_action :set_category, only: %i[ show edit update destroy ]
   before_action :set_global_attributes, only: %i[ show ]
   layout "admin", except: %i[ show ]

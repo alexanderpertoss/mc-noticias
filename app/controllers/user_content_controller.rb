@@ -1,6 +1,7 @@
 class UserContentController < ApplicationController
 	before_action :set_global_attributes
-
+	allow_unauthenticated_access
+	
 	def index		
 		# Get all the categories that go after the multimedia sections
 		@categories_for_main_page = Category.regular_categories		
