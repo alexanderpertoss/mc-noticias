@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :session
+  resources :passwords, param: :token
   # Defines the root path route ("/")
   root "user_content#index"
   get '/contacto' => 'user_content#contact'

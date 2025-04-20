@@ -17,7 +17,7 @@
                     <div class=" px-3 d-flex flex-column justify-content-center ">
                         <div class="mb-2">
                             
-                            <a class="text-body" href=""><small><%= article.created_at.strftime("%d %b, %Y") %></small></a>
+                            <span><small><%= article.created_at.strftime("%d %b, %Y") %></small></span>
                         </div>
                         <%= link_to (truncate(article.title, length: 50)), article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold people-news-title" %>
                     </div>    

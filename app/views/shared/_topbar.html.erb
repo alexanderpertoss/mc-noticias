@@ -10,8 +10,15 @@
                     <li class="nav-item border-right border-secondary">
                         <%= link_to "Contacto", "/contacto", class: "nav-link text-body small" %>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-body small" href="#">Iniciar sesión</a>
+                    <% if authenticated? %>
+                        <li class="nav-item border-right border-secondary">
+                            <%= link_to "Panel", "/admin", class: "nav-link text-body small" %>
+                        </li>
+                    <% end %>
+                    <li class="nav-item border-right border-secondary">
+                        <%= link_to "Iniciar sesión", new_session_path, class: "nav-link text-body small" unless authenticated? %>
+                        
+                        <%= button_to "Cerrar sesión", session_path, method: :delete, class: "btn btn-primary" if authenticated? %>
                     </li>
                 </ul>
             </nav>
