@@ -24,7 +24,7 @@
 			                        </span>
 			                        <span class="text-body">
 			                        	<small>
-			                            	<%= article.created_at.strftime("%d %b, %Y") %>
+			                            	<%= (article.created_at-4.hours).strftime("%d %b, %Y") %>
 			                        	</small>
 			                        </span>
 			                    </div>
