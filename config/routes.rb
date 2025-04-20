@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :currencies
   resource :session
   resources :passwords, param: :token
   # Defines the root path route ("/")

@@ -1,0 +1,33 @@
+<%= form_with(model: currency) do |form| %>
+  <% if currency.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(currency.errors.count, "error") %> prohibited this currency from being saved:</h2>
+
+      <ul>
+        <% currency.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label "Precio oficial de compra", style: "display: block" %>
+    <%= form.text_field :official_dolar_purchase, class: "form-control" %>
+  </div>
+
+  <div  class="form-group">
+    <%= form.label "Precio oficial de venta", style: "display: block" %>
+    <%= form.text_field :official_dolar_sell, class: "form-control" %>
+  </div>
+
+  <div  class="form-group">
+    <%= form.label "Precio dólar blue", style: "display: block" %>
+    <%= form.text_field :blue_dollar, class: "form-control" %>
+  </div>
+  <br>
+  <div  class="form-group">
+    <%= form.submit "Actualizar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", "/admin", class: "btn btn-danger" %>
+  </div>
+<% end %>

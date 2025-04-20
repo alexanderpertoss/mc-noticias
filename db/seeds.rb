@@ -33,4 +33,5 @@ require "open-uri"
 
 #Ad.find_or_create_by!(name: "Anuncio principal")
 
-User.create! email_address: "mccomunicacion2022@gmail.com", password: "noticiasmc9614", password_confirmation: "noticiasmc9614"
+#User.create! email_address: "mccomunicacion2022@gmail.com", password: "noticiasmc9614", password_confirmation: "noticiasmc9614"
+Currency.find_or_create_by!(official_dolar_purchase: "Bs. 6.86", official_dolar_sell: "Bs. 6.96", blue_dollar: "Bs. 12.45")
