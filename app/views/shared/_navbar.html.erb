@@ -70,16 +70,26 @@
         </div>
 
         <!-- Centered Logo -->
-        <a href="/" class="navbar-brand mx-auto d-block d-md-none">
+        <a href="/" class="navbar-brand mx-auto d-block d-md-none" data-turbo="false">
             <%= image_tag "logo-negro.jpeg", style: "height: 40px;" %>
         </a>
 
-        <div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
+        <%= form_with url: "/search", method: :get, local: true, class: "input-group ml-auto", html: { style: "width: 100%; max-width: 300px;" } do %>
+          <%= text_field_tag :q, params[:q], class: "form-control border-0", placeholder: "Ingresa tu búsqueda" %>
+          <div class="input-group-append">
+            <%= button_tag type: "submit", class: "input-group-text bg-primary text-dark border-0 px-3" do %>
+              <i class="fa fa-search"></i>
+            <% end %>
+          </div>
+        <% end %>
+
+
+        <!--<div class="input-group ml-auto" style="width: 100%; max-width: 300px;">
             <input type="text" class="form-control border-0" placeholder="Ingresa tu búsqueda">
             <div class="input-group-append">
                 <button class="input-group-text bg-primary text-dark border-0 px-3"><i class="fa fa-search"></i></button>
             </div>
-        </div>
+        </div>-->
     </nav>
 </div>
 <!-- Navbar End -->

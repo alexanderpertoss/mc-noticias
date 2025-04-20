@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/contacto' => 'user_content#contact'
   get '/history' => 'user_content#history'
   get '/other_networks' => 'user_content#other_networks'
+  get '/search'=> 'user_content#search'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
