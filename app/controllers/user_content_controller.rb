@@ -37,6 +37,16 @@ class UserContentController < ApplicationController
 		@podcasts = Podcast.order(created_at: :desc).limit(2)
 	end
 
+	def search
+		query = params[:q]
+		@articles = Article.search(query).order(created_at: :desc)
+		#@articles = if query.present?
+		#            	Article.where("title LIKE :q", q: "%#{query}%")
+		#            else
+		#           		Article.none
+		#            end
+	end
+
 	def history
 		@articles = Article.order(created_at: :desc).limit(10)
 	end
