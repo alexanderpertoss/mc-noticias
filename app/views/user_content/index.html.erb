@@ -10,6 +10,17 @@
             
 <BR>
 
+<!-- Ads Start -->
+    <div class="mb-3">
+        <div class="section-title mb-0">
+            <h4 class="m-0 text-uppercase font-weight-bold">Publicidad</h4>
+        </div>
+        <div class="bg-white text-center border border-top-0 p-3">
+            <a href=""><%= image_tag @bottom_ad.main_image, class: "img-fluid w-100" if @bottom_ad.main_image.attached? %></a>
+        </div>
+    </div>
+<!-- Ads End -->
+
 <%= render "user_content/partials/news_categories" %>
 
 </div>
