@@ -9,10 +9,10 @@
 		    <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
 		        <div class="mb-2">
 		            
-                    <%= link_to article.category.name, category_path(article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" %>
+                    <%= link_to article.category.name, category_path(article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2", data: { turbo: false } %>
 		            <span><small><%= article.created_at.strftime("%d %b, %Y") %></small></span>
 		        </div>
-		        <%= link_to article.title, article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold" %>
+		        <%= link_to article.title, article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold", data: { turbo: false } %>
 		    </div>
 		</div>
 	<% end %>

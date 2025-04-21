@@ -19,7 +19,7 @@
                             
                             <span><small><%= article.created_at.strftime("%d %b, %Y") %></small></span>
                         </div>
-                        <%= link_to (truncate(article.title, length: 50)), article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold people-news-title" %>
+                        <%= link_to (truncate(article.title, length: 50)), article_path(article), class: "h6 m-0 text-secondary text-uppercase font-weight-bold people-news-title", data: { turbo: false } %>
                     </div>    
                 </div>
                 

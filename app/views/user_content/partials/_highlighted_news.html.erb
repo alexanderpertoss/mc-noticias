@@ -19,7 +19,7 @@
                             </small></a>
                         </div>
                         
-                            <%= link_to (truncate(article.title, length: 120)), article_path(article), class: "h6 m-0 text-white text-uppercase font-weight-semi-bold" %>
+                            <%= link_to (truncate(article.title, length: 120)), article_path(article), class: "h6 m-0 text-white text-uppercase font-weight-semi-bold", data: { turbo: false } %>
                         
                     </div>
                 </div>
