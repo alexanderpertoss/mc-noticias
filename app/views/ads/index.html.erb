@@ -13,7 +13,7 @@
   	<% @ads.each do |ad| %>
   		<tr>
   		  <th scope="row"><%= ad.name %></th>
-  		  <td><%= image_tag ad.main_image if ad.main_image.attached? %></td>
+  		  <td><%= image_tag ad.main_image if ad.main_image.attached?, class: "img-fluid" %></td>
   		  <td><%= link_to "Ver", ad_path(ad), class: "btn btn-success" %></td>
   		  <td><%= link_to "Editar", edit_ad_path(ad), class: "btn btn-primary" %></td>
   		</tr>
