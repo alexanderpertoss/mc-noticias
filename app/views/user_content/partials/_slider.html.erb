@@ -12,12 +12,12 @@
                         <% end %>
                         <div class="overlay">
                             <div class="mb-2">
-                                    <%= link_to slider_article.category.name, category_path(slider_article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>
+                                    <%= link_to slider_article.category.name, category_path(slider_article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2", data: { turbo: false } %>
                                 <a class="text-white" href="#">
                                     <%= slider_article.created_at.strftime("%d %b, %Y") %>
                                 </a>
                             </div>
-                                <%= link_to slider_article.title, article_path(slider_article), class: "h2 m-0 text-white text-uppercase font-weight-bold" %>
+                                <%= link_to slider_article.title, article_path(slider_article), class: "h2 m-0 text-white text-uppercase font-weight-bold", data: { turbo: false } %>
                         </div>
                     </div>
                 <% end %>
@@ -34,12 +34,12 @@
                             <% end %>
                              <div class="overlay">
                                  <div class="mb-2">
-                                     <%= link_to subarticle.category.name, category_path(subarticle.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>
+                                     <%= link_to subarticle.category.name, category_path(subarticle.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2", data: { turbo: false } %>
                                              
                                      <br>
                                      <a class="text-white" href=""><small><%= subarticle.created_at.strftime("%d %b, %Y") %></small></a>
                                  </div>
-                                 <%= link_to subarticle.title, article_path(subarticle), class: "h6 m-0 text-white text-uppercase font-weight-semi-bold" %>
+                                 <%= link_to subarticle.title, article_path(subarticle), class: "h6 m-0 text-white text-uppercase font-weight-semi-bold", data: { turbo: false } %>
                              </div>
                          </div>
                      </div>   
