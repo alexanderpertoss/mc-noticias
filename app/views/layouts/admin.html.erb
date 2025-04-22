@@ -20,8 +20,8 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_include_tag "https://code.jquery.com/jquery-3.6.0.min.js", defer: true %>
     <%= javascript_importmap_tags %>
-    <%= stylesheet_link_tag "trix" %>
-    <%= javascript_include_tag "trix" %>
+    <%= stylesheet_link_tag "trix", crossorigin: "anonymous" %>
+    <%= javascript_include_tag "trix", crossorigin: "anonymous" %>
     <%= javascript_include_tag "actiontext" %>
   </head>
 
