@@ -23,6 +23,17 @@ class Category < ApplicationRecord
 		  .offset(2)
   	end
 
+  	def self.update_categories_queue_positions
+  		excluded_category_ids = [8, 3, 4]  # Categories to exclude
+  		ordered_categories = Category.where.not(id: excluded_category_ids).order(queue_position: :desc)
+  		top_queue_position = ordered_categories.count
+
+  		ordered_categories.each do |category|
+  		  category.update!(queue_position: top_queue_position)
+  		  top_queue_position -= 1
+  		end
+  	end
+
   	def is_multimedia?
   		# Multimedia category is 3
   		category.id == 3
@@ -30,6 +41,6 @@ class Category < ApplicationRecord
 
   	private
   	def set_defaults
-  	  self.queue_position ||= 0
+  	  self.queue_position ||= 1
   	end
 end
