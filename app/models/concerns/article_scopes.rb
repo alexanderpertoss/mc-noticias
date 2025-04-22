@@ -18,7 +18,7 @@ module ArticleScopes
     end
 
     def self.highlighted(available_categories)
-      third_category_id = available_categories.offset(2).limit(1).pluck(:id).first
+      third_category_id = available_categories.offset(1).limit(1).pluck(:id).first
 
       where(category_id: third_category_id)
         .order(created_at: :desc)

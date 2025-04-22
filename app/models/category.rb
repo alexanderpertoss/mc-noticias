@@ -20,7 +20,7 @@ class Category < ApplicationRecord
 		  .group('categories.id')
 		  .having('COUNT(articles.id) > 0')
 		  .order(queue_position: :desc)
-		  .offset(3)
+		  .offset(2)
   	end
 
   	def is_multimedia?
