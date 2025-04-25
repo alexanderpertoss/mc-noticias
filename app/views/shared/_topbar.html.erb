@@ -78,10 +78,10 @@
                     Temperatura: <%= weather_for_city %>
                 </div>
                 <div class="col-12 text-left extra-info" style="font-size: 7.5px; font-weight: bold;">
-                    Dólar Compra/Venta: Bs. <%= Currency.first.official_dolar_purchase %> - <%= Currency.first.official_dolar_sell %>
+                    Dólar Compra/Venta: <%= Currency.first.official_dolar_purchase %> - <%= Currency.first.official_dolar_sell %>
                 </div>
                 <div class="col-12 text-left extra-info" style="font-size: 7.5px; font-weight: bold;">
-                    Dólar Blue: Bs. <%= Currency.first.blue_dollar %>
+                    Dólar Blue: <%= Currency.first.blue_dollar %>
                 </div>
             </div>
         </div>
