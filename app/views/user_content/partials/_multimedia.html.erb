@@ -14,9 +14,9 @@
                     <% end %>
                     <div class="overlay">
                         <div class="mb-2">
-                            <%= link_to article.category.name, category_path(article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2", data: { turbo: false } %><br>
+                            <%= link_to article.categories.first.name, category_path(article.categories.first), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2", data: { turbo: false } %><br>
                             <span class="text-white"><small>
-                                <%= article.created_at.strftime("%d %b, %Y") %>
+                                <%= article.created_at.strftime("%d/%m/%Y") %>
                             </small></span>
                         </div>
                         

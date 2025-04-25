@@ -3,8 +3,7 @@
     <tr>
       <th scope="col">Nombre</th>
       <th scope="col">Descripción</th>
-      <th scope="col">Posición en la cola</th>
-      <th scope="col" colspan="5">Opciones</th>
+      <th scope="col" colspan="4">Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -12,14 +11,13 @@
   		<tr id="category_<%= category.id %>" data-controller="highlight" data-category-id="<%= category.id %>" class="<%= 'highlight' if defined?(updated_category) && category.id == updated_category.id %>">
   		  <th scope="row"><%= category.name %></th>
   		  <td><%= category.description %></td>
-        <td><%= category.queue_position %></td>
         <td>
           <%= button_to "Subir", move_up_category_path(category), method: :patch, remote: true, class: "btn btn-primary" %>
         </td>
         <td>
           <%= button_to "Bajar", move_down_category_path(category), method: :patch, remote: true, class: "btn btn-primary" %>
         </td>
-  		  <td><%= link_to "Ver", category_path(category), class: "btn btn-success", data: { turbo_action: "replace", turbo_frame: "_top" } %></td>
+  		  
   		  <td><%= link_to "Editar", edit_category_path(category), class: "btn btn-primary", data: { turbo_action: "replace", turbo_frame: "_top" } %></td>
   		  <td><%= button_to "Eliminar", category, method: :delete, data: { turbo_confirm: "Estás seguro?" }, class: "btn btn-danger" %></td>
   		</tr>

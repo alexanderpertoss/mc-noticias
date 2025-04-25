@@ -22,7 +22,7 @@ class UserContentController < ApplicationController
 		end
 
 		if @highlighted_articles.count > 0
-			@highlighted_articles_category_name = @highlighted_articles.first.category.name
+			@highlighted_articles_category_name = @highlighted_articles.first.categories.first.name
 		else
 			@highlighted_articles_category_name = "Noticias destacadas"
 		end
@@ -41,11 +41,6 @@ class UserContentController < ApplicationController
 	def search
 		query = params[:q]
 		@articles = Article.search(query).order(created_at: :desc)
-		#@articles = if query.present?
-		#            	Article.where("title LIKE :q", q: "%#{query}%")
-		#            else
-		#           		Article.none
-		#            end
 	end
 
 	def history

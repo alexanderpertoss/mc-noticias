@@ -2,7 +2,7 @@
 <div class="container-fluid pt-5A mb-3A">
     <div class="container">
 
-		<% @categories_for_main_page.offset(5).each do |category| %>
+		<% @categories_for_main_page.offset(4).each do |category| %>
 			<div class="row">
 			    <div class="col-12">
 			        <div class="section-title">
@@ -20,11 +20,14 @@
 			                <% end %>
 			                <div class="bg-white border border-top-0 p-4">
 			                    <div class="mb-2">
-			                        <span><%= link_to article.category.name, category_path(article.category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>
-			                        </span>
+			                    	<% article.categories.each do |category| %>
+			                        	<span><%= link_to category.name, category_path(category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" %>
+			                        	</span>
+			                        <% end %>
 			                        <span class="text-body">
+			                        	<br>
 			                        	<small>
-			                            	<%= (article.created_at-4.hours).strftime("%d %b, %Y") %>
+			                            	<%= (article.created_at-4.hours).strftime("%d/%m/%Y") %>
 			                        	</small>
 			                        </span>
 			                    </div>

@@ -1,5 +1,7 @@
 class Category < ApplicationRecord
-	has_many :articles
+	#has_many :articles
+	has_many :article_categories, dependent: :destroy
+  	has_many :articles, through: :article_categories
 	validates :name, presence: true
 	after_initialize :set_defaults
 
@@ -14,13 +16,12 @@ class Category < ApplicationRecord
     	# excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
     	excluded_category_ids = [8, 3, 4]  
 
-   		
-   		categories = where.not(id: excluded_category_ids)
-		  .joins(:articles)
-		  .group('categories.id')
-		  .having('COUNT(articles.id) > 0')
-		  .order(queue_position: :desc)
-		  .offset(2)
+   		where.not(id: excluded_category_ids)
+   		    .joins(:articles)
+   		    .group('categories.id')
+   		    .having('COUNT(articles.id) > 0')
+   		    .order(queue_position: :desc)
+   		    .offset(2)
   	end
 
   	def self.update_categories_queue_positions

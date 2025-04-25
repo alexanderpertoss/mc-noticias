@@ -19,10 +19,11 @@
                                 <% end %>
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
-                                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                                            href=""><%= article.category.name %></a>
+                                        <% article.categories.each do |category| %>
+                                            <%= link_to category.name, category_path(category), class: "badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-1" %>
+                                        <% end %><br>
                                         <a class="text-body" href=""><small>
-                                            <%= article.created_at.strftime("%d %b, %Y") %>
+                                            <%= article.created_at.strftime("%d/%m/%Y") %>
                                                 
                                             </small></a>
                                     </div>

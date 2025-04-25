@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   layout "admin", except: [:show]
 
   def index
-    @articles = Article.regular_articles(Category.available_categories).search(params[:query]).order(created_at: :desc)
+    @articles = Article.regular_articles(Category.available_categories).search(params[:query]).order(created_at: :desc).limit(20)
   end
 
   def show
@@ -15,11 +15,35 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+
+    if params[:multimedia_news] == 'true'
+      @is_multimedia = true
+    else
+      @is_multimedia = false
+    end
+
+    if params[:people_news] == 'true'
+      @is_people_news = true
+    else
+      @is_people_news = false
+    end
   end
 
   def create
+    multimedia_news = params[:multimedia_news]
+    people_news = params[:people_news]
     @article = Article.new(article_params)
+
     if @article.save
+      if multimedia_news
+        # Find multimedia category
+        @article.categories << Category.find(3)
+      end
+
+      if people_news
+        @article.categories << Category.find(4)
+      end
+
       if @article.is_multimedia?
         flash[:success] = "Nota multimedia creada correctamente"
         redirect_to "/multimedia"
@@ -39,6 +63,17 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    if params[:multimedia_news] == 'true'
+      @is_multimedia = true
+    else
+      @is_multimedia = false
+    end
+
+    if params[:people_news] == 'true'
+      @is_people_news = true
+    else
+      @is_people_news = false
+    end
   end
 
   def update
@@ -51,7 +86,7 @@ class ArticlesController < ApplicationController
           redirect_to "/people_news"
         else
           if @article.is_last_moment_news?
-            flash[:success] = "Nota para Gente que Hace Noticia actualizada correctamente"
+            flash[:success] = "Nota de último momento actualizada"
             redirect_to edit_article_path(@article)
           else
             flash[:success] = "Nota actualizada correctamente"
@@ -111,13 +146,6 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      permitted = params.expect(article: [ :title, :author, :content, :language, :video_url, :category_id, :main_image ])
-
-        # Extract the first selected category
-        if params[:category_ids].present?
-          permitted[:category_id] = params[:category_ids].first
-        end
-
-        permitted
+      permitted = params.expect(article: [ :title, :author, :content, :language, :video_url, :main_image, category_ids: [] ])
     end
 end

@@ -61,6 +61,8 @@ class CategoriesController < ApplicationController
       @category.update!(queue_position: above_category_queue_position)
     end
     
+    Category.update_categories_queue_positions
+
     # excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
     excluded_category_ids = [8, 3, 4]  # Categories to exclude
     @categories = Category.where.not(id: excluded_category_ids).order(queue_position: :desc)
@@ -84,6 +86,9 @@ class CategoriesController < ApplicationController
       @category.update!(queue_position: below_category_queue_position)
       
     end
+
+
+    Category.update_categories_queue_positions
 
     # excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
     excluded_category_ids = [8, 3, 4]  # Categories to exclude

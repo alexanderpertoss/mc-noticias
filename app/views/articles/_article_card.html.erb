@@ -4,13 +4,17 @@
     <h5 class="card-title"><%= link_to article.title, article_path(article), target: "_blank" %></h5>
     <p class="card-text">
       Noticia vista <%= article.visits %> veces.<br>
-      Categoría: <%= article.category.name %>.<br>
+      Categorías: 
+      <% article.categories.each do |category| %>
+        <%= category.name %>, 
+      <% end %>
+      <br>
       Autor(a): <%= article.author %><br>
     </p>
   </div>
   <ul class="list-group list-group-flush">
     
-    <li class="list-group-item">Fecha: <%= article.created_at.strftime("%d %b, %Y") %></li>
+    <li class="list-group-item">Fecha: <%= article.created_at.strftime("%d/%m/%Y") %></li>
     
     <li class="list-group-item"><%= link_to "Editar", edit_article_path(article), class: "btn btn-primary btn-block" %></li>
     <li class="list-group-item"><%= button_to "Eliminar", article, method: :delete, data: { turbo_confirm: "Estás seguro?" }, class: "btn btn-danger btn-block" %></li>

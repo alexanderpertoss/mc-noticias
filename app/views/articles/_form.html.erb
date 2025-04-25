@@ -29,16 +29,28 @@
     <%= form.text_field :video_url, class: "form-control" %>
   </div>
 
-  <div class="form-group">
-    <%= form.label "Categoría" %>
-
-    <% Category.all.each do |category| %>
-      <div class="form-check">
-        <%= check_box_tag "category_ids[]", category.id, @article.category_id == category.id, class: "form-check-input" %>
-        <%= label_tag "category_ids_#{category.id}", category.name, class: "form-check-label" %>
-      </div>
+  <% if @article.is_multimedia? or @is_multimedia or @article.is_last_moment_news? or @is_people_news or @article.is_people_news?%>
+    <% if @article.is_last_moment_news? %>
+      <%= hidden_field_tag :last_moment_news, true %>
+    <% else %>
+      <% if @is_people_news %>
+        <%= hidden_field_tag :people_news, true %>
+      <% else %>
+        <%= hidden_field_tag :multimedia_news, true %>
+      <% end %>
     <% end %>
-  </div>
+  <% else %>
+    <div class="form-group">
+      <%= form.label "Categoría" %>
+
+      <%= form.collection_check_boxes :category_ids, Category.available_categories, :id, :name do |b| %>
+        <div class="form-check">
+          <%= b.check_box(class: "form-check-input") %>
+          <%= b.label(class: "form-check-label") %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.submit "Aceptar", class: "btn btn-primary" %>

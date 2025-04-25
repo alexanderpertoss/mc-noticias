@@ -11,7 +11,7 @@
                             <div class="news-marquee-wrapper">
                               <div class="news-marquee">
                                     <span class="text-white text-uppercase font-weight-semi-bold">
-                                        <%= @latest_news_pill.content.to_plain_text %>
+                                        <%= @latest_news_pill.content.to_plain_text unless @latest_news_pill.nil? %>
                                     </span>
                               </div>
                             </div>
