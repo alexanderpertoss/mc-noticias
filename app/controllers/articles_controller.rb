@@ -16,6 +16,8 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
 
+    @article.language ||= "Español"
+
     if params[:multimedia_news] == 'true'
       @is_multimedia = true
     else
