@@ -18,6 +18,10 @@ class Ad < ApplicationRecord
 		Ad.find(3)
 	end
 
+	def self.podcast_ad
+		Ad.find(4)
+	end
+
 	private
 	def attach_default_image
 	    default_image_path = Rails.root.join("app/assets/images/ads-728x90.png")

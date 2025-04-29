@@ -83,5 +83,6 @@ class CurrenciesController < ApplicationController
       @small_ad = Ad.small_ad
       @lateral_ad = Ad.lateral_ad
       @bottom_ad = Ad.bottom_ad
+      @podcast_ad = Ad.podcast_ad
     end
 end
