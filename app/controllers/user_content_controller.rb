@@ -71,5 +71,6 @@ class UserContentController < ApplicationController
 		@lateral_ad = Ad.lateral_ad
 		@bottom_ad = Ad.bottom_ad
 		@podcast_ad = Ad.podcast_ad
+		@last_ad = Ad.last_ad
 	end
 end
