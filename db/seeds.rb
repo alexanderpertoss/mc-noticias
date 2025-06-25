@@ -14,27 +14,27 @@ require "open-uri"
 #default_image_path = Rails.root.join("app/assets/images/ads-728x90.png")
 
 
-#Category.find_or_create_by!(name: "Noticias Destacadas", description: "Las notas que saldrán en la sección de Noticias Destacadas")
+Category.find_or_create_by!(name: "Noticias Destacadas", description: "Las notas que saldrán en la sección de Noticias Destacadas")
 # ID=2
-#Category.find_or_create_by!(name: "Portada", description: "Las notas que saldrán en el carusel de la página inicial")
+Category.find_or_create_by!(name: "Portada", description: "Las notas que saldrán en el carusel de la página inicial")
 # ID=3
-#Category.find_or_create_by!(name: "Multimedia", description: "Las notas que saldrán en la sección Multimedia")
+Category.find_or_create_by!(name: "Multimedia", description: "Las notas que saldrán en la sección Multimedia")
 # ID=4
-#Category.find_or_create_by!(name: "Gente que hace noticia", description: "Las notas que saldrán en la sección de Gente que Hace Noticia")
+Category.find_or_create_by!(name: "Gente que hace noticia", description: "Las notas que saldrán en la sección de Gente que Hace Noticia")
 # ID=5
-#Category.find_or_create_by!(name: "Noticias en inglés", description: "Las notas que saldrán en la sección Inglés")
+Category.find_or_create_by!(name: "Noticias en inglés", description: "Las notas que saldrán en la sección Inglés")
 # ID=6
-#Category.find_or_create_by!(name: "Noticias en quechua", description: "Las notas que saldrán en la sección Quechua")
+Category.find_or_create_by!(name: "Noticias en quechua", description: "Las notas que saldrán en la sección Quechua")
 # ID=7
-#Category.find_or_create_by!(name: "Mundo interno", description: "Las notas que saldrán en la sección Mundo Interno")
+Category.find_or_create_by!(name: "Mundo interno", description: "Las notas que saldrán en la sección Mundo Interno")
 # ID=8
-#Category.find_or_create_by!(name: "Último momento", description: "Las notas que saldrán en la sección Mundo Interno")
+Category.find_or_create_by!(name: "Último momento", description: "Las notas que saldrán en la sección Mundo Interno")
 
 
-#Ad.find_or_create_by!(name: "Anuncio principal")
+Ad.find_or_create_by!(name: "Anuncio principal")
 
-#User.create! email_address: "mccomunicacion2022@gmail.com", password: "noticiasmc9614", password_confirmation: "noticiasmc9614"
-#Currency.find_or_create_by!(official_dolar_purchase: "Bs. 6.86", official_dolar_sell: "Bs. 6.96", blue_dollar: "Bs. 12.45")
+User.create! email_address: "mccomunicacion2022@gmail.com", password: "noticiasmc9614", password_confirmation: "noticiasmc9614"
+Currency.find_or_create_by!(official_dolar_purchase: "Bs. 6.86", official_dolar_sell: "Bs. 6.96", blue_dollar: "Bs. 12.45")
 
 
 #articles = Article.all.each do |article|
