@@ -1,17 +1,17 @@
 class CategoriesController < ApplicationController
   allow_unauthenticated_access only: %i[ show ]
-	before_action :set_category, only: %i[ show edit update destroy ]
+  before_action :set_category, only: %i[ show edit update destroy ]
   before_action :set_global_attributes, only: %i[ show ]
   layout "admin", except: %i[ show ]
 
   def index
     # excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
-    excluded_category_ids = [8, 3, 4]  # Categories to exclude
+    excluded_category_ids = [ 8, 3, 4 ]  # Categories to exclude
     @categories = Category.where.not(id: excluded_category_ids).order(queue_position: :desc)
   end
 
   def show
-    @articles = @category.articles.order(created_at: :desc)
+    @articles = @category.articles.limit(16).order(created_at: :desc)
 
     # Gente que hace noticia category
     @people_articles = Article.people_news.limit(5)
@@ -60,11 +60,11 @@ class CategoriesController < ApplicationController
       above_category.update!(queue_position: @category.queue_position)
       @category.update!(queue_position: above_category_queue_position)
     end
-    
+
     Category.update_categories_queue_positions
 
     # excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
-    excluded_category_ids = [8, 3, 4]  # Categories to exclude
+    excluded_category_ids = [ 8, 3, 4 ]  # Categories to exclude
     @categories = Category.where.not(id: excluded_category_ids).order(queue_position: :desc)
 
     respond_to do |format|
@@ -81,17 +81,17 @@ class CategoriesController < ApplicationController
 
     if below_category
       below_category_queue_position = below_category.queue_position
-      
+
       below_category.update!(queue_position: @category.queue_position)
       @category.update!(queue_position: below_category_queue_position)
-      
+
     end
 
 
     Category.update_categories_queue_positions
 
     # excluding the "ultimo momento" category with id=8 and multimedia with id=3 and "gente que hace noticia" with id=4
-    excluded_category_ids = [8, 3, 4]  # Categories to exclude
+    excluded_category_ids = [ 8, 3, 4 ]  # Categories to exclude
     @categories = Category.where.not(id: excluded_category_ids).order(queue_position: :desc)
 
     respond_to do |format|
