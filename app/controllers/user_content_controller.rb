@@ -40,7 +40,7 @@ class UserContentController < ApplicationController
 
   def search
     query = params[:q]
-    @articles = Article.search(query).order(created_at: :desc)
+    @articles = Article.search(query).limit(20).order(created_at: :desc)
   end
 
   def history
