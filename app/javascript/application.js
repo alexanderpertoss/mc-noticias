@@ -9,8 +9,7 @@ import "trix"
 import "@rails/actiontext"
 
 
-document.addEventListener("turbo:load", function () {
-  "use strict";
+
   
   // Dropdown on mouse hover
   function toggleNavbarMethod() {
@@ -226,4 +225,3 @@ document.addEventListener("turbo:load", function () {
   $("#show-sidebar").click(function() {
     $(".page-wrapper").addClass("toggled");
   });
-});
