@@ -39,6 +39,7 @@ document.addEventListener("turbo:load", function () {
     $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
     return false;
   });
+  
 
   // Carousels
   $(".main-carousel").owlCarousel({
@@ -49,6 +50,48 @@ document.addEventListener("turbo:load", function () {
     loop: true,
     center: true,
   });
+
+  function initializeMainCarousel() {
+  $(".main-carousel").owlCarousel({
+    autoplay: true,
+    smartSpeed: 1500,
+    items: 1,
+    dots: true,
+    loop: true,
+    center: true,
+  });
+}
+
+    // Wait until all images inside .main-carousel are loaded
+    let sliderImages = document.querySelectorAll('.main-carousel img');
+    let totalImages = sliderImages.length;
+    let imagesLoaded = 0;
+
+    if (totalImages === 0) {
+      initializeMainCarousel(); // fallback
+    } else {
+      sliderImages.forEach(function(img) {
+        if (img.complete) {
+          imagesLoaded++;
+          if (imagesLoaded === totalImages) {
+            initializeMainCarousel();
+          }
+        } else {
+          img.addEventListener('load', function () {
+            imagesLoaded++;
+            if (imagesLoaded === totalImages) {
+              initializeMainCarousel();
+            }
+          });
+          img.addEventListener('error', function () {
+            imagesLoaded++; // even failed images count to avoid blocking
+            if (imagesLoaded === totalImages) {
+              initializeMainCarousel();
+            }
+          });
+        }
+      });
+    }
 
   $(".tranding-carousel").owlCarousel({
     autoplay: true,
