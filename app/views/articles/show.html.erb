@@ -1,5 +1,5 @@
 <% content_for :og_title, @article.title %>
-<% content_for :og_description, @article.content || truncate(strip_tags(@article.content), length: 160) %>
+<% content_for :og_description, truncate(@article.content.to_plain_text, length: 160) %>
 
 <% if @article.main_image.attached? %>
   <% content_for :og_image, url_for(@article.main_image) %>
